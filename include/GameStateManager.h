@@ -4,7 +4,18 @@
 #include <stack>
 #include <memory>
 
-#include "IGameState.h"
+class GameStateManager;
+
+class IGameState
+{
+protected:
+public:
+	IGameState() {};
+
+	virtual void update(float dt) = 0;
+	virtual void leave() = 0;
+	virtual void enter() = 0;
+};
 
 class GameStateManager
 {
@@ -15,9 +26,21 @@ public:
 	GameStateManager() {};
 	~GameStateManager() {};
 
-	void update(float dt) const;
-	void draw(float dt) const;
-	void change_state(std::unique_ptr<IGameState> gamestate);
+	inline void update(float dt)
+	{
+		gamestate_stack.top()->update(dt);
+	}
+
+	inline void change_state(std::unique_ptr<IGameState> gamestate)
+	{
+		if (!gamestate_stack.empty())
+		{
+			gamestate_stack.top()->leave();
+			gamestate_stack.pop();
+		}
+		gamestate->enter();
+		gamestate_stack.push(std::move(gamestate));
+	}
 };
 
 #endif // GAMESTATEMANAGER_H

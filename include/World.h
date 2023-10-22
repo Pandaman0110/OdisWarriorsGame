@@ -5,63 +5,67 @@
 #include <vector>
 #include <string>
 #include <functional>
+#include <type_traits>
 
 #include <entt.hpp>
 
-namespace OdisEngine
+
+typedef uint32_t entity_storage_type;
+
+enum class entity : uint32_t {};
+
+inline std::ostream& operator<<(std::ostream& os, const entity& entity)
 {
-	typedef uint32_t entity_storage_type;
+	os << static_cast<entity_storage_type>(entity);
+	return os;
+}
 
-	enum class entity : uint32_t {};
+template <typename Component>
+concept Aggregate = std::is_aggregate_v<Component>;
 
-	inline std::ostream& operator<<(std::ostream& os, const entity& entity)
-	{
-		os << static_cast<entity_storage_type>(entity);
-		return os;
-	}
+class World
+{
+private:
 
 	typedef entt::basic_registry<entity> WorldEntities;
 	typedef std::vector<entity> Garbage;
 
-	class World
+	WorldEntities world_entities;
+	Garbage garbage;
+
+public:
+	World() {};
+
+	template <Aggregate Component, typename...Arg> //requries Aggregate<Component>
+	Component& assign(entity entity, Arg&&...args) 
 	{
-	private:
-		WorldEntities world_entities;
-		Garbage garbage;
+		return world_entities.emplace<Component>(entity, args...);
+	}
 
-	public:
-		World() {};
+	template <Aggregate...Component>
+	inline void update_system(std::function<void(Component&...)> system)
+	{
+		auto view = world_entities.view<Component...>();
 
-		template <typename Component, typename...Arg>
-		inline Component& assign(entity entity, Arg&&...args)
+		for (auto entity : view)
 		{
-			return world_entities.emplace<Component>(entity, args...);
+			system(view.get<Component...>(entity));
 		}
+	}
 
-		template <typename ...Components>
-		inline void update_system(std::function<void(Components...)> system)
-		{
-			auto view = world_entities.view<Components...>();
+	inline void cleanup()
+	{
+		for (auto entity : garbage)
+			world_entities.destroy(entity);
 
-			for (auto entity : view)
-			{
-				system(view.get<Components...>(entity));
-			}
-		}
-
-		inline void cleanup()
-		{
-			for (auto entity : garbage)
-				world_entities.destroy(entity);
-
-			garbage.clear();
-		};
-
-		inline entity create_entity() { return world_entities.create(); };
-		inline void destroy_entity(entity entity) { garbage.push_back(entity); };
-		inline void destroy_all_entities() { world_entities.clear(); };
+		garbage.clear();
 	};
-}
+
+	inline entity create_entity() { return world_entities.create(); };
+	inline void destroy_entity(entity entity) { garbage.push_back(entity); };
+	inline void destroy_all_entities() { world_entities.clear(); };
+};
+
 
 
 #endif

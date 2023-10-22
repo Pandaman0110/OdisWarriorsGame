@@ -3,12 +3,10 @@
 
 #include "Texture2D.h"
 
-namespace OdisEngine
+
+struct Sprite
 {
-	struct Sprite
-	{
-		Texture2D texture;
-	};
-}
+	Texture2D texture;
+};
 
 #endif
