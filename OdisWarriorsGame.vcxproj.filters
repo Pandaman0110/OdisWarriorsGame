@@ -2183,7 +2183,7 @@
     <ClInclude Include="include\Components\Transform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Systems.h">
+    <ClInclude Include="include\Systems.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -2599,8 +2599,6 @@
     <None Include="lib\OdisEngine\glm\gtx\wrap.inl">
       <Filter>Header Files</Filter>
     </None>
-    <None Include="lib\OdisEngine\shaders\sprite.frag" />
-    <None Include="lib\OdisEngine\shaders\sprite.vert" />
     <None Include="lib\glm\detail\func_common.inl">
       <Filter>Header Files</Filter>
     </None>
@@ -3012,9 +3010,17 @@
     <None Include="lib\OdisEngineRelease.pdb" />
     <None Include="lib\OdisEngineDebug.idb" />
     <None Include="lib\OdisEngineDebug.pdb" />
+    <None Include="lib\shaders\sprite.frag" />
+    <None Include="lib\shaders\sprite.vert" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\OdisEngineDebug.lib" />
     <Library Include="lib\OdisEngineRelease.lib" />
+    <Library Include="lib\box2d.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="catgreyidle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

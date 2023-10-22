@@ -4,6 +4,8 @@
 #include "Components.h"
 #include "Game.h"
 
+using namespace OdisEngine;
+
 class RenderSystem
 {
 private:
@@ -11,12 +13,12 @@ private:
 public:
 	RenderSystem()
 	{
-
 	};
 
 	void operator()(Transform2D& transform)
 	{
-		renderer.clear({});
+		auto& text = resource_manager.load_texture("catgreyidle.png", true, "cat");
+		renderer.draw_texture(text, {30, 30});
 	}
 
 };

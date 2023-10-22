@@ -887,7 +887,7 @@
     <ClInclude Include="lib\vk_platform.h" />
     <ClInclude Include="include\Timer.h" />
     <ClInclude Include="include\Systems\RenderSystem.h" />
-    <ClInclude Include="Systems.h" />
+    <ClInclude Include="include\Systems.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="lib\OdisEngine\glm\CMakeLists.txt" />
@@ -1168,12 +1168,16 @@
     <None Include="lib\OdisEngine\glm\gtx\vector_angle.inl" />
     <None Include="lib\OdisEngine\glm\gtx\vector_query.inl" />
     <None Include="lib\OdisEngine\glm\gtx\wrap.inl" />
-    <None Include="lib\OdisEngine\shaders\sprite.frag" />
-    <None Include="lib\OdisEngine\shaders\sprite.vert" />
+    <None Include="lib\shaders\sprite.frag" />
+    <None Include="lib\shaders\sprite.vert" />
   </ItemGroup>
   <ItemGroup>
+    <Library Include="lib\box2d.lib" />
     <Library Include="lib\OdisEngineDebug.lib" />
     <Library Include="lib\OdisEngineRelease.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="catgreyidle.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

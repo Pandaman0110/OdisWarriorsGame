@@ -14,18 +14,17 @@
 using namespace GameState;
 using namespace OdisEngine;
 
-
-void cum_shit(Transform2D& transform) {};
-
 MainMenu::MainMenu()
 {
 	auto entity = world.create_entity();
 	world.assign<Transform2D>(entity);
+	world.assign<Sprite>(entity);
 }
 
 void MainMenu::update(float dt)
 {
-	world.update_system(std::function(cum_shit));
+	renderer.clear(Color{});
+	world.update_system(std::function{ render_system });
 }
 
 void MainMenu::leave()
