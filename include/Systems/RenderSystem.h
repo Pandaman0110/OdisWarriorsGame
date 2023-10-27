@@ -16,7 +16,7 @@ public:
 	{
 	};
 
-	void operator()(Transform2D& transform, Cat& cat)
+	void operator()(Transform2D& transform)
 	{
 		auto &text = resource_manager.load_texture("assets/textures/cat_textures/catgreyidle.png", true, "cat");
 		//auto& text = resource_manager.load_texture("assets/textures/cat_textures/catgreyidle.png", true, "cat");

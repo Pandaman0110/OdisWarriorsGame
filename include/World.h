@@ -5,6 +5,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <tuple>
 #include <functional>
 #include <type_traits>
 #include <concepts>
@@ -69,7 +70,6 @@ private:
 
 	WorldEntities world_entities;
 	Garbage garbage;
-	entt::type_list<> type_list;
 
 public:
 	World() {};
@@ -77,7 +77,6 @@ public:
 	template <Component T, typename...Arg> //requries Aggregate<Component>
 	T& assign(Entity ent, Arg&&...args)
 	{
-		//type_list += T;
 		return world_entities.emplace<T>(ent, std::forward<Arg...>(args)...);
 	}
 
@@ -85,10 +84,10 @@ public:
 	void update_system(std::function<void(T&...)> system)
 	{
 		auto view = world_entities.view<T...>();
-
+		
 		for (auto entity : view)
 		{
-			std::apply(system, view.get<T...>(entity));
+			std::apply(system, view.get(entity));
 		}
 	}
 
