@@ -23,7 +23,7 @@ int main()
 	ImGui_ImplGlfw_InitForOpenGL(window.get_window_handle(), true);
 	ImGui_ImplOpenGL3_Init();
 
-	game_state_manager.change_state(std::make_unique<GameState::MainMenu>());
+	game_state_manager.change_state(std::make_unique<GameState::CatGame>());
 
 	while (!window.should_close())
 	{

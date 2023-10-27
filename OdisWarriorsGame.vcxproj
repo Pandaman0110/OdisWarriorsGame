@@ -103,7 +103,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>gdi32.lib;opengl32.lib;OdisEngineDebug.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gdi32.lib;opengl32.lib;OdisEngineDebug.lib;box2d_debug.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -123,7 +123,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>gdi32.lib;opengl32.lib;OdisEngineRelease.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gdi32.lib;opengl32.lib;OdisEngineRelease.lib;box2d_release.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -139,7 +139,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>gdi32.lib;opengl32.lib;OdisEngineDebug.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gdi32.lib;opengl32.lib;OdisEngineDebug.lib;box2d_debug.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -159,7 +159,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>gdi32.lib;opengl32.lib;OdisEngineRelease.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gdi32.lib;opengl32.lib;OdisEngineRelease.lib;box2d_release.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -175,13 +175,16 @@
     <ClCompile Include="lib\imgui\imgui_widgets.cpp" />
     <ClCompile Include="lib\vulkan.c" />
     <ClCompile Include="OdisWarriorsGame.cpp" />
+    <ClCompile Include="src\GameStates\CatGame.cpp" />
+    <ClCompile Include="src\GameStates\LevelEditor.cpp" />
     <ClCompile Include="src\GameStates\MainMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Components\Cat.h" />
+    <ClInclude Include="include\Components\PhysicsBodies.h" />
     <ClInclude Include="include\Components\Sprite.h" />
     <ClInclude Include="include\Components\Transform.h" />
     <ClInclude Include="include\Game.h" />
-    <ClInclude Include="include\Components.h" />
     <ClInclude Include="include\GameStateManager.h" />
     <ClInclude Include="include\GameStates.h" />
     <ClInclude Include="include\World.h" />
@@ -888,6 +891,7 @@
     <ClInclude Include="include\Timer.h" />
     <ClInclude Include="include\Systems\RenderSystem.h" />
     <ClInclude Include="include\Systems.h" />
+    <ClInclude Include="include\Systems\PhysicsSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="lib\OdisEngine\glm\CMakeLists.txt" />
@@ -1170,14 +1174,13 @@
     <None Include="lib\OdisEngine\glm\gtx\wrap.inl" />
     <None Include="lib\shaders\sprite.frag" />
     <None Include="lib\shaders\sprite.vert" />
+    <None Include="assets\cat_game.toml" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="lib\box2d.lib" />
+    <Library Include="lib\box2d_debug.lib" />
+    <Library Include="lib\box2d_release.lib" />
     <Library Include="lib\OdisEngineDebug.lib" />
     <Library Include="lib\OdisEngineRelease.lib" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="catgreyidle.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

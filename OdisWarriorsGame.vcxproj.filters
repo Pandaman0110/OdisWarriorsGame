@@ -54,6 +54,12 @@
     <ClCompile Include="lib\imgui\imgui_widgets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameStates\LevelEditor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameStates\CatGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\World.h">
@@ -63,9 +69,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="lib\OdisEngine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Components.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="lib\OdisEngine\Camera.h">
@@ -2186,6 +2189,15 @@
     <ClInclude Include="include\Systems.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Components\Cat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Systems\PhysicsSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Components\PhysicsBodies.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="lib\OdisEngine\glm\CMakeLists.txt" />
@@ -3012,15 +3024,12 @@
     <None Include="lib\OdisEngineDebug.pdb" />
     <None Include="lib\shaders\sprite.frag" />
     <None Include="lib\shaders\sprite.vert" />
+    <None Include="assets\cat_game.toml" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\OdisEngineDebug.lib" />
     <Library Include="lib\OdisEngineRelease.lib" />
-    <Library Include="lib\box2d.lib" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="catgreyidle.png">
-      <Filter>Resource Files</Filter>
-    </Image>
+    <Library Include="lib\box2d_release.lib" />
+    <Library Include="lib\box2d_debug.lib" />
   </ItemGroup>
 </Project>

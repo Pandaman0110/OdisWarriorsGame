@@ -1,8 +1,9 @@
 #ifndef RENDER_SYSTEM_H
 #define RENDER_SYSTEM_H
 
-#include "Components.h"
 #include "Game.h"
+#include "Components/Cat.h"
+#include "Components/Transform.h"
 
 using namespace OdisEngine;
 
@@ -15,10 +16,11 @@ public:
 	{
 	};
 
-	void operator()(Transform2D& transform)
+	void operator()(Transform2D& transform, Cat& cat)
 	{
-		auto& text = resource_manager.load_texture("catgreyidle.png", true, "cat");
-		renderer.draw_texture(text, {30, 30});
+		auto &text = resource_manager.load_texture("assets/textures/cat_textures/catgreyidle.png", true, "cat");
+		//auto& text = resource_manager.load_texture("assets/textures/cat_textures/catgreyidle.png", true, "cat");
+		renderer.draw_texture(text, transform.position, transform.rotation);
 	}
 
 };

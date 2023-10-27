@@ -3,7 +3,7 @@
 
 #include "GameStateManager.h"
 #include "World.h"
-#include "RenderSystem.h"
+#include "Systems.h"
 
 namespace GameState
 {
@@ -15,6 +15,36 @@ namespace GameState
 		RenderSystem render_system{};
 	public:
 		MainMenu();
+
+		void update(float dt) override;
+		void leave() override;
+		void enter() override;
+	};
+
+	class CatGame : public IGameState
+	{
+	private:
+		World world{};
+
+		PhysicsSystem physics_system{};
+		RenderSystem render_system{};
+	public:
+		CatGame();
+
+		void update(float dt) override;
+		void leave() override;
+		void enter() override;
+	};
+
+	class LevelEditor : public IGameState
+	{
+	private:
+		World world{};
+
+		RenderSystem render_system{};
+
+	public:
+		LevelEditor();
 
 		void update(float dt) override;
 		void leave() override;

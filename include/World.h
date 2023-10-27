@@ -2,54 +2,93 @@
 #define ODISWORLD_H
 
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <string>
 #include <functional>
 #include <type_traits>
+#include <concepts>
 
 #include <entt.hpp>
 
 
+
 typedef uint32_t entity_storage_type;
 
-enum class entity : uint32_t {};
+enum class Entity : uint32_t {};
 
-inline std::ostream& operator<<(std::ostream& os, const entity& entity)
+inline std::ostream& operator<<(std::ostream& os, const Entity& entity)
 {
 	os << static_cast<entity_storage_type>(entity);
 	return os;
 }
 
-template <typename Component>
-concept Aggregate = std::is_aggregate_v<Component>;
+template <typename T>
+concept Component = requires (T component)
+{
+	std::is_aggregate_v<T>;
+	component.write(std::declval<std::ostream&>());
+};
+
+template <Component T>
+std::string get_component_name()
+{
+#ifdef __clang__
+	std::abort()
+		/*code specific to clang compiler*/
+#elif __GNUC__
+	std::abort()
+		/*code for GNU C compiler */
+#elif _MSC_VER
+	/*usually has the version number in _MSC_VER*/
+	/*code specific to MSVC compiler*/
+	auto name = std::string(typeid(T).name());
+	return name.erase(0, 7);
+#endif
+}
+
+template <Component ...T>
+void write_components(std::ostream& os, T...components)
+{
+	if constexpr (sizeof...(T) > 0)
+		(..., components.write(os));
+}
+
+template <typename T>
+void write_entity(std::ostream& os, T entity)
+{
+	os << "Entity: " << static_cast<int>(entity) << "\n";
+}
+
 
 class World
 {
 private:
-
-	typedef entt::basic_registry<entity> WorldEntities;
-	typedef std::vector<entity> Garbage;
+	typedef entt::basic_registry<Entity> WorldEntities;
+	typedef std::vector<Entity> Garbage;
 
 	WorldEntities world_entities;
 	Garbage garbage;
+	entt::type_list<> type_list;
 
 public:
 	World() {};
 
-	template <Aggregate Component, typename...Arg> //requries Aggregate<Component>
-	Component& assign(entity entity, Arg&&...args) 
+	template <Component T, typename...Arg> //requries Aggregate<Component>
+	T& assign(Entity ent, Arg&&...args)
 	{
-		return world_entities.emplace<Component>(entity, args...);
+		//type_list += T;
+		return world_entities.emplace<T>(ent, std::forward<Arg...>(args)...);
 	}
 
-	template <Aggregate...Component>
-	inline void update_system(std::function<void(Component&...)> system)
+	template <Component...T>
+	void update_system(std::function<void(T&...)> system)
 	{
-		auto view = world_entities.view<Component...>();
+		auto view = world_entities.view<T...>();
 
 		for (auto entity : view)
 		{
-			system(view.get<Component...>(entity));
+			std::apply(system, view.get<T...>(entity));
 		}
 	}
 
@@ -59,13 +98,37 @@ public:
 			world_entities.destroy(entity);
 
 		garbage.clear();
-	};
+	}
 
-	inline entity create_entity() { return world_entities.create(); };
-	inline void destroy_entity(entity entity) { garbage.push_back(entity); };
+	inline Entity create_entity() { return world_entities.create(); };
+	inline void destroy_entity(Entity entity) { garbage.push_back(entity); };
 	inline void destroy_all_entities() { world_entities.clear(); };
+
+	//TODO
+	/*
+	void write_entities(std::ostream& os)
+	{
+		auto view = world_entities.view<Entity>();
+
+		for (auto entity : view)
+		{
+			write_entity(os, entity);
+			write_components(os, view.get<T...>(entity));
+
+			
+			std::apply(
+				[&](auto...args)
+				{
+					(..., args.write(os));
+				}, view.get(entity));
+				
+
+			std::apply([&](auto ...args) { std::cout << sizeof...(args) << std::endl; write_components(os, args...); }, view.get(entity));
+		}
+	}
+	*/
 };
 
 
-
 #endif
+

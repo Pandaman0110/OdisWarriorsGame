@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "OdisMath.h"
+#include "World.h"
 
 
 struct Transform2D
@@ -11,16 +12,15 @@ struct Transform2D
 	vec2 position { 0, 0 };
 	float rotation = 0;
 	vec2 scale = { 1, 1 };
+
+	inline void write(std::ostream& os)
+	{
+		os << get_component_name<Transform2D>() << "\n";
+		os << "Position:  X - " << position.x << " Y - " << position.y << "\n";
+		os << "Scale:  X - " << scale.x << " Y - " << scale.y << "\n";
+		os << "Rotation: " << rotation << "\n";
+	}
 };
-
-inline std::ostream& operator<<(std::ostream& os, const Transform2D& transform)
-{
-	os << "Position:  X - " << transform.position.x << " Y - " << transform.position.y << "\n";
-	os << "Scale:  X - " << transform.scale.x << " Y - " << transform.scale.y << "\n";
-	os << "Rotation: " << transform.rotation << "\n";
-
-	return os;
-}
 
 struct Transform3D
 {
