@@ -1,5 +1,4 @@
-#include <iostream>
-#include <memory>
+import std;
 
 #include <imgui.h>
 #include <imgui_impl_opengl3.h>
@@ -35,12 +34,10 @@ int main()
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
 
+		//.substr(0, 3)
 		if (input.is_key_pressed(Key::KEY_ESCAPE))
 			break;
-
-		if (input.is_key_down(Key::KEY_2))
-			std::cout << "HERE" << "\n";
-
+		
 		game_state_manager.update(timer.get_delta_time());
 
 		ImGui::Render();

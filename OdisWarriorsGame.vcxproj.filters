@@ -3025,11 +3025,15 @@
     <None Include="lib\shaders\sprite.frag" />
     <None Include="lib\shaders\sprite.vert" />
     <None Include="assets\cat_game.toml" />
+    <None Include="lib\STLModules\std.ifc" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\OdisEngineDebug.lib" />
     <Library Include="lib\OdisEngineRelease.lib" />
     <Library Include="lib\box2d_release.lib" />
     <Library Include="lib\box2d_debug.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="lib\STLModules\std.obj" />
   </ItemGroup>
 </Project>
