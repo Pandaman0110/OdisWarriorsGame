@@ -27,8 +27,8 @@ inline std::ostream& operator<<(std::ostream& os, const Entity& entity)
 template <typename T>
 concept Component = requires (T component)
 {
-	std::is_aggregate_v<T>;
-	component.write(std::declval<std::ostream&>());
+	{ std::is_aggregate_v<T> };
+	{ component.write(std::declval<std::ostream&>()) };
 };
 
 template <Component T>
@@ -62,10 +62,11 @@ void write_entity(std::ostream& os, T entity)
 }
 
 
+typedef entt::basic_registry<Entity> WorldEntities;
+
 class World
 {
 private:
-	typedef entt::basic_registry<Entity> WorldEntities;
 	typedef std::vector<Entity> Garbage;
 
 	WorldEntities world_entities;
@@ -80,14 +81,32 @@ public:
 		return world_entities.emplace<T>(ent, std::forward<Arg...>(args)...);
 	}
 
+	template <Component T>
+	auto on_construct()
+	{
+		return world_entities.on_construct<T>();
+	}
+	
 	template <Component...T>
+	void update_system(std::function<void(float, T&...)> system, float dt)
+	{
+		auto view = world_entities.view<T...>();
+
+		for (auto entity : view)
+		{
+			std::apply(system, std::tuple_cat(std::make_tuple(dt), view.get(entity)));
+		}
+	}
+
+	template < std::size_t times, Component...T>
 	void update_system(std::function<void(T&...)> system)
 	{
 		auto view = world_entities.view<T...>();
-		
-		for (auto entity : view)
+
+		for (std::size_t i = 0; i < times; ++i)
 		{
-			std::apply(system, view.get(entity));
+			for (auto entity : view)
+				std::apply(system, view.get(entity));
 		}
 	}
 

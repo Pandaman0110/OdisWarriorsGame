@@ -38,6 +38,9 @@ int main()
 		if (input.is_key_pressed(Key::KEY_ESCAPE))
 			break;
 
+		if (input.is_key_down(Key::KEY_2))
+			std::cout << "HERE" << "\n";
+
 		game_state_manager.update(timer.get_delta_time());
 
 		ImGui::Render();
