@@ -96,7 +96,7 @@ public:
 
 		set_linear_velocity(physics_component, normalized);
 
-		vec2 position { to_pixel(get_position(physics_component)) };
+		vec2 position { glm::round(to_pixel(get_position(physics_component))) };
 		transform.position.x = position.x;
 		transform.position.y = position.y;
 

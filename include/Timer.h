@@ -47,7 +47,7 @@ public:
 
     inline int get_fps() const
     {
-        return 100 / get_delta_time();
+        return static_cast<int>(100 / get_delta_time());
     }
 };
 

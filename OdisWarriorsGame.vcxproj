@@ -31,6 +31,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <EnableUnitySupport>false</EnableUnitySupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -38,12 +39,14 @@
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <EnableUnitySupport>false</EnableUnitySupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <EnableUnitySupport>false</EnableUnitySupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -51,6 +54,7 @@
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <EnableUnitySupport>false</EnableUnitySupport>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -99,8 +103,8 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <EnableModules>true</EnableModules>
-      <BuildStlModules>true</BuildStlModules>
+      <EnableModules>false</EnableModules>
+      <BuildStlModules>false</BuildStlModules>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
     </ClCompile>
@@ -121,8 +125,8 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <EnableModules>true</EnableModules>
-      <BuildStlModules>true</BuildStlModules>
+      <EnableModules>false</EnableModules>
+      <BuildStlModules>false</BuildStlModules>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
     </ClCompile>
@@ -143,8 +147,8 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <EnableModules>true</EnableModules>
-      <BuildStlModules>true</BuildStlModules>
+      <EnableModules>false</EnableModules>
+      <BuildStlModules>false</BuildStlModules>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
     </ClCompile>
@@ -165,8 +169,8 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <EnableModules>true</EnableModules>
-      <BuildStlModules>true</BuildStlModules>
+      <EnableModules>false</EnableModules>
+      <BuildStlModules>false</BuildStlModules>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
     </ClCompile>
@@ -245,6 +249,7 @@
     <ClInclude Include="lib\box2d\b2_world_callbacks.h" />
     <ClInclude Include="lib\box2d\box2d.h" />
     <ClInclude Include="lib\entt.hpp" />
+    <ClInclude Include="lib\ft2build.h" />
     <ClInclude Include="lib\glad\gl.h" />
     <ClInclude Include="lib\glad\vulkan.h" />
     <ClInclude Include="lib\GLFW\glfw3.h" />
@@ -543,6 +548,7 @@
     <ClInclude Include="lib\imgui\imstb_truetype.h" />
     <ClInclude Include="lib\include\Camera.h" />
     <ClInclude Include="lib\include\Color.h" />
+    <ClInclude Include="lib\include\Font.h" />
     <ClInclude Include="lib\include\GLSLShader.h" />
     <ClInclude Include="lib\include\Input.h" />
     <ClInclude Include="lib\include\InputEvent.h" />
@@ -552,6 +558,7 @@
     <ClInclude Include="lib\include\Renderer.h" />
     <ClInclude Include="lib\include\ResourceManager.h" />
     <ClInclude Include="lib\include\SpriteRenderer.h" />
+    <ClInclude Include="lib\include\TextRenderer.h" />
     <ClInclude Include="lib\include\Texture2D.h" />
     <ClInclude Include="lib\include\Window.h" />
     <ClInclude Include="lib\KHR\khrplatform.h" />
@@ -1191,16 +1198,18 @@
     <None Include="lib\shaders\sprite.frag" />
     <None Include="lib\shaders\sprite.vert" />
     <None Include="assets\cat_game.toml" />
-    <None Include="lib\STLModules\std.ifc" />
+    <None Include="lib\shaders\text.frag" />
+    <None Include="lib\shaders\text.vert" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\box2d_debug.lib" />
     <Library Include="lib\box2d_release.lib" />
+    <Library Include="lib\freetype.lib" />
     <Library Include="lib\OdisEngineDebug.lib" />
     <Library Include="lib\OdisEngineRelease.lib" />
   </ItemGroup>
   <ItemGroup>
-    <Object Include="lib\STLModules\std.obj" />
+    <Font Include="assets\fonts\EBG_R.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

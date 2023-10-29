@@ -2198,6 +2198,15 @@
     <ClInclude Include="include\Components\PhysicsBodies.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="lib\ft2build.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\Font.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\TextRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="lib\OdisEngine\glm\CMakeLists.txt" />
@@ -3025,15 +3034,17 @@
     <None Include="lib\shaders\sprite.frag" />
     <None Include="lib\shaders\sprite.vert" />
     <None Include="assets\cat_game.toml" />
-    <None Include="lib\STLModules\std.ifc" />
+    <None Include="lib\shaders\text.frag" />
+    <None Include="lib\shaders\text.vert" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\OdisEngineDebug.lib" />
     <Library Include="lib\OdisEngineRelease.lib" />
     <Library Include="lib\box2d_release.lib" />
     <Library Include="lib\box2d_debug.lib" />
+    <Library Include="lib\freetype.lib" />
   </ItemGroup>
   <ItemGroup>
-    <Object Include="lib\STLModules\std.obj" />
+    <Font Include="assets\fonts\EBG_R.ttf" />
   </ItemGroup>
 </Project>
