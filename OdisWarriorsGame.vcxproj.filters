@@ -3046,5 +3046,6 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="assets\fonts\EBG_R.ttf" />
+    <Font Include="assets\fonts\angrela.ttf" />
   </ItemGroup>
 </Project>

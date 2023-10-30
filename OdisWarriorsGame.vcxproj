@@ -1209,6 +1209,7 @@
     <Library Include="lib\OdisEngineRelease.lib" />
   </ItemGroup>
   <ItemGroup>
+    <Font Include="assets\fonts\angrela.ttf" />
     <Font Include="assets\fonts\EBG_R.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

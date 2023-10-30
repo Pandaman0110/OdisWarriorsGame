@@ -83,16 +83,28 @@ public:
 	{
 		vec2 velocity{0.0f, 0.0f};
 
-		if (input.is_key_down(Key::KEY_W))
-			velocity.y = -300.0f * dt;
-		if (input.is_key_down(Key::KEY_S))
-			velocity.y = 300.0f * dt;
-		if (input.is_key_down(Key::KEY_D))
-			velocity.x = 300.0f * dt;
-		if (input.is_key_down(Key::KEY_A))
-			velocity.x = -300.0f * dt;
+		float speed = 300.0f;
 
-		auto normalized{ velocity };
+		if (input.is_key_down(Key::KEY_W))
+			velocity.y = -1;
+		if (input.is_key_down(Key::KEY_S))
+			velocity.y = 1;
+		if (input.is_key_down(Key::KEY_D))
+			velocity.x = 1;
+		if (input.is_key_down(Key::KEY_A))
+			velocity.x = -1;
+
+		auto normalized = velocity;
+
+		auto length = glm::length(velocity);
+		if (length != 0 and length != 1)
+		{
+			normalized = glm::normalize(velocity);
+			std::cout << "CUM";
+		}
+
+		normalized.x *= speed * dt;
+		normalized.y *= speed * dt;
 
 		set_linear_velocity(physics_component, normalized);
 
