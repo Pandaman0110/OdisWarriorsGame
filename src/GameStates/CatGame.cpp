@@ -23,7 +23,6 @@ CatGame::CatGame()
 
 	auto &body = world.assign<KinematicBody2D>(entity);
 
-
 	physics_system.add_physics_component(body, 1, 1);
 
 	auto& cum = body.body;

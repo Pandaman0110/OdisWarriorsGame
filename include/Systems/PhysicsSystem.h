@@ -27,8 +27,6 @@ concept PhysicsComponent = requires (T component)
 	{ component.body };
 };
 
-
-
 class PhysicsSystem
 {
 private:
@@ -98,10 +96,7 @@ public:
 
 		auto length = glm::length(velocity);
 		if (length != 0 and length != 1)
-		{
 			normalized = glm::normalize(velocity);
-			std::cout << "CUM";
-		}
 
 		normalized.x *= speed * dt;
 		normalized.y *= speed * dt;
