@@ -6,7 +6,7 @@
 
 #include <imgui.h>
 
-#include "Game.h"
+//#include "Game.h"
 #include "GameStates.h"
 
 using namespace GameState;

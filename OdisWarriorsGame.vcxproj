@@ -107,6 +107,7 @@
       <BuildStlModules>false</BuildStlModules>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
+      <DisableSpecificWarnings>4099;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,6 +130,7 @@
       <BuildStlModules>false</BuildStlModules>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
+      <DisableSpecificWarnings>4099;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,6 +153,7 @@
       <BuildStlModules>false</BuildStlModules>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
+      <DisableSpecificWarnings>4099;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -173,6 +176,7 @@
       <BuildStlModules>false</BuildStlModules>
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
+      <DisableSpecificWarnings>4099;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -553,10 +557,13 @@
     <ClInclude Include="lib\include\Input.h" />
     <ClInclude Include="lib\include\InputEvent.h" />
     <ClInclude Include="lib\include\Keys.h" />
+    <ClInclude Include="lib\include\Mesh.h" />
     <ClInclude Include="lib\include\OdisEngine.hpp" />
     <ClInclude Include="lib\include\OdisMath.h" />
     <ClInclude Include="lib\include\Renderer.h" />
     <ClInclude Include="lib\include\ResourceManager.h" />
+    <ClInclude Include="lib\include\ShapeRenderer.h" />
+    <ClInclude Include="lib\include\Shapes.h" />
     <ClInclude Include="lib\include\SpriteRenderer.h" />
     <ClInclude Include="lib\include\TextRenderer.h" />
     <ClInclude Include="lib\include\Texture2D.h" />
