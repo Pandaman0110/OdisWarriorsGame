@@ -12,8 +12,12 @@ Input input{ window };
 Timer timer{};
 GameStateManager game_state_manager{};
 
+#include <sol.hpp>
+
 int main()
 {
+	//sol::state lua;
+	//std::cout << x << std::endl;
 
 	game_state_manager.change_state(std::make_unique<GameState::CatGame>());
 

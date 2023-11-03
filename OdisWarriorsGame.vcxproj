@@ -85,14 +85,14 @@
     <LibraryPath>lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>include/Systems;include;lib;lib/include;lib/imgui;$(IncludePath)</IncludePath>
+    <IncludePath>include/Systems;include;lib;lib/include;lib/imgui;sol;sol/lua/include;$(IncludePath);sol;sol/lua/include</IncludePath>
     <SourcePath>lib;src;$(VC_SourcePath);</SourcePath>
-    <LibraryPath>lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
+    <LibraryPath>sol/lua;sol;lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>include/Systems;include;lib;lib/include;lib/imgui;$(IncludePath)</IncludePath>
+    <IncludePath>include/Systems;include;lib;lib/include;lib/imgui;$(IncludePath);sol;sol/lua/include</IncludePath>
     <SourcePath>lib;src;$(VC_SourcePath);</SourcePath>
-    <LibraryPath>lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
+    <LibraryPath>sol/lua;lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -158,7 +158,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>gdi32.lib;opengl32.lib;OdisEngineDebug.lib;box2d_debug.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gdi32.lib;opengl32.lib;lua54.lib;OdisEngineDebug.lib;box2d_debug.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/LTCG %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -183,7 +184,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>gdi32.lib;opengl32.lib;OdisEngineRelease.lib;box2d_release.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>gdi32.lib;opengl32.lib;lua54.lib;OdisEngineRelease.lib;box2d_release.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/LTCG %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -922,6 +924,20 @@
     <ClInclude Include="include\Systems\RenderSystem.h" />
     <ClInclude Include="include\Systems.h" />
     <ClInclude Include="include\Systems\PhysicsSystem.h" />
+    <ClInclude Include="lua\include\config.hpp" />
+    <ClInclude Include="lua\include\sol.hpp" />
+    <ClInclude Include="sol\config.hpp" />
+    <ClInclude Include="sol\lauxlib.h" />
+    <ClInclude Include="sol\lua.h" />
+    <ClInclude Include="sol\luaconf.h" />
+    <ClInclude Include="sol\luajit.h" />
+    <ClInclude Include="sol\lualib.h" />
+    <ClInclude Include="sol\lua\include\lauxlib.h" />
+    <ClInclude Include="sol\lua\include\lua.h" />
+    <ClInclude Include="sol\lua\include\lua.hpp" />
+    <ClInclude Include="sol\lua\include\luaconf.h" />
+    <ClInclude Include="sol\lua\include\lualib.h" />
+    <ClInclude Include="sol\sol.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="lib\OdisEngine\glm\CMakeLists.txt" />
@@ -1207,6 +1223,7 @@
     <None Include="assets\cat_game.toml" />
     <None Include="lib\shaders\text.frag" />
     <None Include="lib\shaders\text.vert" />
+    <None Include="sol\lua\lua54.dll" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\box2d_debug.lib" />
@@ -1214,6 +1231,7 @@
     <Library Include="lib\freetype.lib" />
     <Library Include="lib\OdisEngineDebug.lib" />
     <Library Include="lib\OdisEngineRelease.lib" />
+    <Library Include="sol\lua\lua54.lib" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="assets\fonts\angrela.ttf" />

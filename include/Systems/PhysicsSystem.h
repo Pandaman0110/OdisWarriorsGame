@@ -33,10 +33,10 @@ private:
 	b2World* physics_world;
 
 	template <PhysicsComponent T>
-	vec2 get_position(T& component)
+	glm::vec2 get_position(T& component)
 	{
 		b2Vec2 b = component.body->GetPosition();
-		return vec2{ b.x, b.y };
+		return glm::vec2{ b.x, b.y };
 	}
 	template <PhysicsComponent T1, VectorType T2>
 	void set_linear_velocity(T1& component, T2 velocity)
@@ -79,7 +79,7 @@ public:
 	template<PhysicsComponent T>
 	void operator()(float dt, T& physics_component, Transform2D& transform)
 	{
-		vec2 velocity{0.0f, 0.0f};
+		glm::vec2 velocity{0.0f, 0.0f};
 
 		float speed = 300.0f;
 
@@ -103,7 +103,7 @@ public:
 
 		set_linear_velocity(physics_component, normalized);
 
-		vec2 position { glm::round(to_pixel(get_position(physics_component))) };
+		glm::vec2 position { glm::round(to_pixel(get_position(physics_component))) };
 		transform.position.x = position.x;
 		transform.position.y = position.y;
 
@@ -143,17 +143,17 @@ public:
 		auto b = static_cast<b2Body*>(physics_component.body);
 		physics_component.body = body;
 	}
-	vec2 to_world(vec2 pixel_position)
+	glm::vec2 to_world(glm::vec2 pixel_position)
 	{
-		return vec2{ pixel_position.x * PIXELS_PER_METER, pixel_position.x * PIXELS_PER_METER };
+		return glm::vec2{ pixel_position.x * PIXELS_PER_METER, pixel_position.x * PIXELS_PER_METER };
 	}
 	float to_world_scalar(float scalar)
 	{
 		static_cast<float>(scalar * PIXELS_PER_METER);
 	}
-	vec2 to_pixel(vec2 world_position)
+	glm::vec2 to_pixel(glm::vec2 world_position)
 	{
-		return vec2{ world_position.x / PIXELS_PER_METER, world_position.y / PIXELS_PER_METER };
+		return glm::vec2{ world_position.x / PIXELS_PER_METER, world_position.y / PIXELS_PER_METER };
 	}
 	float to_pixel_scalar(float scalar)
 	{
