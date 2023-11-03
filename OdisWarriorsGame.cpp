@@ -12,8 +12,11 @@ Input input{ window };
 Timer timer{};
 GameStateManager game_state_manager{};
 
+
 int main()
 {
+
+
 
 	game_state_manager.change_state(std::make_unique<GameState::CatGame>());
 
