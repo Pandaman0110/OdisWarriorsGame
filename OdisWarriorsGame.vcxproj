@@ -75,28 +75,24 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>lua/include;include/Systems;include;lib;lib/include;lib/imgui;$(IncludePath)</IncludePath>
-    <SourcePath>src;$(VC_SourcePath);</SourcePath>
-    <LibraryPath>lib;lualib$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
-    <ExecutablePath>$(VC_ExecutablePath_x86);$(CommonExecutablePath)</ExecutablePath>
+    <IncludePath>include/Systems;include;lib;lib/include;lib/imgui;$(IncludePath)</IncludePath>
+    <SourcePath>lib;src;$(VC_SourcePath);</SourcePath>
+    <LibraryPath>lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>lua/include;include/Systems;include;lib;lib/include;lib/imgui;$(IncludePath)</IncludePath>
-    <SourcePath>src;$(VC_SourcePath);</SourcePath>
-    <LibraryPath>lib;lualib$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
-    <ExecutablePath>$(VC_ExecutablePath_x86);$(CommonExecutablePath)</ExecutablePath>
+    <IncludePath>include/Systems;include;lib;lib/include;lib/imgui;$(IncludePath)</IncludePath>
+    <SourcePath>lib;src;$(VC_SourcePath);</SourcePath>
+    <LibraryPath>lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>lua/include;include/Systems;include;lib;lib/include;lib/imgui;$(IncludePath)</IncludePath>
-    <SourcePath>src;$(VC_SourcePath);</SourcePath>
-    <LibraryPath>lib;lualib$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
-    <ExecutablePath>$(VC_ExecutablePath_x64);$(CommonExecutablePath)</ExecutablePath>
+    <IncludePath>include/Systems;include;lib;lib/include;lib/imgui;$(IncludePath)</IncludePath>
+    <SourcePath>lib;src;$(VC_SourcePath);</SourcePath>
+    <LibraryPath>lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>lua/include;include/Systems;include;lib;lib/include;lib/imgui;$(IncludePath)</IncludePath>
-    <SourcePath>src;$(VC_SourcePath);</SourcePath>
-    <LibraryPath>lib;lualib$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
-    <ExecutablePath>$(VC_ExecutablePath_x64);$(CommonExecutablePath)</ExecutablePath>
+    <IncludePath>include/Systems;include;lib;lib/include;lib/imgui;$(IncludePath)</IncludePath>
+    <SourcePath>lib;src;$(VC_SourcePath);</SourcePath>
+    <LibraryPath>lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -919,7 +915,6 @@
     <ClInclude Include="lib\SOIL\image_DXT.h" />
     <ClInclude Include="lib\SOIL\image_helper.h" />
     <ClInclude Include="lib\SOIL\SOIL.h" />
-    <ClInclude Include="lib\sol.hpp" />
     <ClInclude Include="lib\toml.hpp" />
     <ClInclude Include="lib\OdisEngine\Window.h" />
     <ClInclude Include="lib\vk_platform.h" />
@@ -927,87 +922,6 @@
     <ClInclude Include="include\Systems\RenderSystem.h" />
     <ClInclude Include="include\Systems.h" />
     <ClInclude Include="include\Systems\PhysicsSystem.h" />
-    <ClInclude Include="lua\include\lauxlib.h" />
-    <ClInclude Include="lua\include\lua.h" />
-    <ClInclude Include="lua\include\lua.hpp" />
-    <ClInclude Include="lua\include\luaconf.h" />
-    <ClInclude Include="lua\include\luajit.h" />
-    <ClInclude Include="lua\include\lualib.h" />
-    <ClInclude Include="lua\lua.hpp" />
-    <ClInclude Include="lua\src\lauxlib.h" />
-    <ClInclude Include="lua\src\lj_alloc.h" />
-    <ClInclude Include="lua\src\lj_arch.h" />
-    <ClInclude Include="lua\src\lj_asm.h" />
-    <ClInclude Include="lua\src\lj_asm_arm.h" />
-    <ClInclude Include="lua\src\lj_asm_arm64.h" />
-    <ClInclude Include="lua\src\lj_asm_mips.h" />
-    <ClInclude Include="lua\src\lj_asm_ppc.h" />
-    <ClInclude Include="lua\src\lj_asm_x86.h" />
-    <ClInclude Include="lua\src\lj_bc.h" />
-    <ClInclude Include="lua\src\lj_bcdump.h" />
-    <ClInclude Include="lua\src\lj_buf.h" />
-    <ClInclude Include="lua\src\lj_carith.h" />
-    <ClInclude Include="lua\src\lj_ccall.h" />
-    <ClInclude Include="lua\src\lj_ccallback.h" />
-    <ClInclude Include="lua\src\lj_cconv.h" />
-    <ClInclude Include="lua\src\lj_cdata.h" />
-    <ClInclude Include="lua\src\lj_char.h" />
-    <ClInclude Include="lua\src\lj_clib.h" />
-    <ClInclude Include="lua\src\lj_cparse.h" />
-    <ClInclude Include="lua\src\lj_crecord.h" />
-    <ClInclude Include="lua\src\lj_ctype.h" />
-    <ClInclude Include="lua\src\lj_debug.h" />
-    <ClInclude Include="lua\src\lj_def.h" />
-    <ClInclude Include="lua\src\lj_dispatch.h" />
-    <ClInclude Include="lua\src\lj_emit_arm.h" />
-    <ClInclude Include="lua\src\lj_emit_arm64.h" />
-    <ClInclude Include="lua\src\lj_emit_mips.h" />
-    <ClInclude Include="lua\src\lj_emit_ppc.h" />
-    <ClInclude Include="lua\src\lj_emit_x86.h" />
-    <ClInclude Include="lua\src\lj_err.h" />
-    <ClInclude Include="lua\src\lj_errmsg.h" />
-    <ClInclude Include="lua\src\lj_ff.h" />
-    <ClInclude Include="lua\src\lj_ffrecord.h" />
-    <ClInclude Include="lua\src\lj_frame.h" />
-    <ClInclude Include="lua\src\lj_func.h" />
-    <ClInclude Include="lua\src\lj_gc.h" />
-    <ClInclude Include="lua\src\lj_gdbjit.h" />
-    <ClInclude Include="lua\src\lj_ir.h" />
-    <ClInclude Include="lua\src\lj_ircall.h" />
-    <ClInclude Include="lua\src\lj_iropt.h" />
-    <ClInclude Include="lua\src\lj_jit.h" />
-    <ClInclude Include="lua\src\lj_lex.h" />
-    <ClInclude Include="lua\src\lj_lib.h" />
-    <ClInclude Include="lua\src\lj_mcode.h" />
-    <ClInclude Include="lua\src\lj_meta.h" />
-    <ClInclude Include="lua\src\lj_obj.h" />
-    <ClInclude Include="lua\src\lj_parse.h" />
-    <ClInclude Include="lua\src\lj_prng.h" />
-    <ClInclude Include="lua\src\lj_profile.h" />
-    <ClInclude Include="lua\src\lj_record.h" />
-    <ClInclude Include="lua\src\lj_serialize.h" />
-    <ClInclude Include="lua\src\lj_snap.h" />
-    <ClInclude Include="lua\src\lj_state.h" />
-    <ClInclude Include="lua\src\lj_str.h" />
-    <ClInclude Include="lua\src\lj_strfmt.h" />
-    <ClInclude Include="lua\src\lj_strscan.h" />
-    <ClInclude Include="lua\src\lj_tab.h" />
-    <ClInclude Include="lua\src\lj_target.h" />
-    <ClInclude Include="lua\src\lj_target_arm.h" />
-    <ClInclude Include="lua\src\lj_target_arm64.h" />
-    <ClInclude Include="lua\src\lj_target_mips.h" />
-    <ClInclude Include="lua\src\lj_target_ppc.h" />
-    <ClInclude Include="lua\src\lj_target_x86.h" />
-    <ClInclude Include="lua\src\lj_trace.h" />
-    <ClInclude Include="lua\src\lj_traceerr.h" />
-    <ClInclude Include="lua\src\lj_udata.h" />
-    <ClInclude Include="lua\src\lj_vm.h" />
-    <ClInclude Include="lua\src\lj_vmevent.h" />
-    <ClInclude Include="lua\src\lua.h" />
-    <ClInclude Include="lua\src\luaconf.h" />
-    <ClInclude Include="lua\src\luajit.h" />
-    <ClInclude Include="lua\src\luajit_rolling.h" />
-    <ClInclude Include="lua\src\lualib.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="lib\OdisEngine\glm\CMakeLists.txt" />
@@ -1293,15 +1207,6 @@
     <None Include="assets\cat_game.toml" />
     <None Include="lib\shaders\text.frag" />
     <None Include="lib\shaders\text.vert" />
-    <None Include="lua\jit\.gitignore" />
-    <None Include="lua\src\.gitignore" />
-    <None Include="lua\src\msvcbuild.bat" />
-    <None Include="lua\src\nxbuild.bat" />
-    <None Include="lua\src\ps4build.bat" />
-    <None Include="lua\src\ps5build.bat" />
-    <None Include="lua\src\psvitabuild.bat" />
-    <None Include="lua\src\xb1build.bat" />
-    <None Include="lua\src\xedkbuild.bat" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\box2d_debug.lib" />

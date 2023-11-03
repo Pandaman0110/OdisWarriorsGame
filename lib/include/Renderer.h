@@ -38,21 +38,23 @@ namespace OdisEngine
 			glClear(GL_COLOR_BUFFER_BIT);
 		};
 
-		template <VectorType T1 = glm::vec2, VectorType T2 = glm::vec2, ColorTypeRGB T3 = ColorRGB>
-		void draw_rect(T1 pos, T2 size, T3 color = { 1.0f, 1.0f, 1.0f }, float rotation = 0.0f, float alpha = 1.0f)
+		template <ColorTypeRGB T>
+		void draw_rect(ivec2 pos, ivec2 size, T color, float rotation = 0.0f, float alpha = 1.0f)
 		{
-			shape_renderer->draw_rect(pos, size, color, rotation, alpha);
+			shape_renderer->draw_rect(pos, size, rotation, color, alpha);
+		}
+
+		template <RectangleType T1, ColorTypeRGB T2>
+		void draw_rect(T1 rect, T2 color, float rotation = 0.0f, float alpha = 1.0f)
+		{
+			shape_renderer->draw_rect(std::move(ivec2{ rect.x, rect.y }), std::move(ivec2{ rect.w, rect.h }), rotation, color, alpha);
 		}
 
 		//texture drawing
-		template <VectorType T1 = glm::vec2>
-		void draw_texture(Texture2D& texture, T1 position, float rotation = 0.0f)
-		{
-			sprite_renderer->draw_texture(texture, position, rotation);
-		}
+		void draw_texture(Texture2D&, vec2 = { 0, 0 }, float  = 0.0f);
 
 		//fonts and text
-		void draw_text(std::string text, glm::vec2 pos = {0.0f, 0.0f}, float scale = 1.0f, Color color = {0.0f, 0.0f, 0.0f});
+		void draw_text(std::string text, vec2 pos = {0.0f, 0.0f}, float scale = 1.0f, Color color = {0.0f, 0.0f, 0.0f});
 		void set_font(Font&);
 
 		void draw();
