@@ -3,13 +3,13 @@
 
 #include <iostream>
 
-#include "OdisMath.h"
+#include "utility/OdisMath.h"
 #include "World.h"
 
 
 struct Transform2D
 {
-	glm::vec2 position { 0, 0 };
+	glm::ivec2 position { 0, 0 };
 	float rotation = 0;
 	glm::vec2 scale = { 1, 1 };
 

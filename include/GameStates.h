@@ -3,7 +3,9 @@
 
 #include "GameStateManager.h"
 #include "World.h"
-#include "Systems.h"
+
+#include "Systems/RenderSystem.h"
+#include "Systems/PhysicsSystem.h"
 
 namespace GameState
 {

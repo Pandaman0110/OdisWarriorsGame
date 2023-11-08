@@ -5,9 +5,10 @@
 #include <memory>
 
 #include <box2d/box2d.h>
+#include <utility/OdisMath.h>
+#include <Input.h>
 
 #include "Game.h"
-#include "OdisMath.h"
 #include "Components/Transform.h"
 #include "Components/Cat.h"
 #include "Components/PhysicsBodies.h"
@@ -83,13 +84,13 @@ public:
 
 		float speed = 300.0f;
 
-		if (input.is_key_down(Key::KEY_W))
+		if (input->is_key_down(Key::KEY_W))
 			velocity.y = -1;
-		if (input.is_key_down(Key::KEY_S))
+		if (input->is_key_down(Key::KEY_S))
 			velocity.y = 1;
-		if (input.is_key_down(Key::KEY_D))
+		if (input->is_key_down(Key::KEY_D))
 			velocity.x = 1;
-		if (input.is_key_down(Key::KEY_A))
+		if (input->is_key_down(Key::KEY_A))
 			velocity.x = -1;
 
 		auto normalized = velocity;
@@ -103,7 +104,7 @@ public:
 
 		set_linear_velocity(physics_component, normalized);
 
-		glm::vec2 position { glm::round(to_pixel(get_position(physics_component))) };
+		glm::ivec2 position { glm::round(to_pixel(get_position(physics_component))) };
 		transform.position.x = position.x;
 		transform.position.y = position.y;
 

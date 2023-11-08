@@ -4,11 +4,6 @@
 #include <string>
 #include <memory>
 
-#include <imgui.h>
-
-//#include "Game.h"
-#include "GameStates.h"
-
 using namespace GameState;
 using namespace OdisEngine;
 

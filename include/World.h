@@ -35,10 +35,10 @@ template <Component T>
 std::string get_component_name()
 {
 #ifdef __clang__
-	std::abort()
+	std::abort();
 		/*code specific to clang compiler*/
 #elif __GNUC__
-	std::abort()
+	std::abort();
 		/*code for GNU C compiler */
 #elif _MSC_VER
 	/*usually has the version number in _MSC_VER*/

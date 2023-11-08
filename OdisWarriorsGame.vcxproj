@@ -31,7 +31,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <EnableUnitySupport>false</EnableUnitySupport>
+    <EnableUnitySupport>true</EnableUnitySupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -39,14 +39,14 @@
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <EnableUnitySupport>false</EnableUnitySupport>
+    <EnableUnitySupport>true</EnableUnitySupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <EnableUnitySupport>false</EnableUnitySupport>
+    <EnableUnitySupport>true</EnableUnitySupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -54,7 +54,7 @@
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <EnableUnitySupport>false</EnableUnitySupport>
+    <EnableUnitySupport>true</EnableUnitySupport>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -75,22 +75,22 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>include/Systems;include;lib;lib/include;lib/imgui;$(IncludePath)</IncludePath>
+    <IncludePath>include;lib;lib/include;$(IncludePath)</IncludePath>
     <SourcePath>lib;src;$(VC_SourcePath);</SourcePath>
     <LibraryPath>lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>include/Systems;include;lib;lib/include;lib/imgui;$(IncludePath)</IncludePath>
+    <IncludePath>include;lib;lib/include;$(IncludePath)</IncludePath>
     <SourcePath>lib;src;$(VC_SourcePath);</SourcePath>
     <LibraryPath>lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>include/Systems;include;lib;lib/include;lib/imgui;sol;sol/lua/include;$(IncludePath);sol;sol/lua/include</IncludePath>
+    <IncludePath>include;lib;lib/include;sol;sol/lua/include;$(IncludePath);sol;sol/lua/include</IncludePath>
     <SourcePath>lib;src;$(VC_SourcePath);</SourcePath>
     <LibraryPath>sol/lua;sol;lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>include/Systems;include;lib;lib/include;lib/imgui;$(IncludePath);sol;sol/lua/include</IncludePath>
+    <IncludePath>include;lib;lib/include;$(IncludePath);sol;sol/lua/include</IncludePath>
     <SourcePath>lib;src;$(VC_SourcePath);</SourcePath>
     <LibraryPath>sol/lua;lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
@@ -206,6 +206,7 @@
     <ClCompile Include="src\GameStates\MainMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Config.h" />
     <ClInclude Include="include\Components\Cat.h" />
     <ClInclude Include="include\Components\PhysicsBodies.h" />
     <ClInclude Include="include\Components\Sprite.h" />
@@ -542,16 +543,6 @@
     <ClInclude Include="lib\glm\vec3.hpp" />
     <ClInclude Include="lib\glm\vec4.hpp" />
     <ClInclude Include="lib\glm\vector_relational.hpp" />
-    <ClInclude Include="lib\imgui\imconfig.h" />
-    <ClInclude Include="lib\imgui\imgui.h" />
-    <ClInclude Include="lib\imgui\imgui_impl_glfw.h" />
-    <ClInclude Include="lib\imgui\imgui_impl_opengl3.h" />
-    <ClInclude Include="lib\imgui\imgui_impl_opengl3_loader.h" />
-    <ClInclude Include="lib\imgui\imgui_internal.h" />
-    <ClInclude Include="lib\imgui\imgui_stdlib.h" />
-    <ClInclude Include="lib\imgui\imstb_rectpack.h" />
-    <ClInclude Include="lib\imgui\imstb_textedit.h" />
-    <ClInclude Include="lib\imgui\imstb_truetype.h" />
     <ClInclude Include="lib\include\Camera.h" />
     <ClInclude Include="lib\include\Color.h" />
     <ClInclude Include="lib\include\Font.h" />
@@ -560,6 +551,7 @@
     <ClInclude Include="lib\include\InputEvent.h" />
     <ClInclude Include="lib\include\Keys.h" />
     <ClInclude Include="lib\include\Mesh.h" />
+    <ClInclude Include="lib\include\OdisConcepts.h" />
     <ClInclude Include="lib\include\OdisEngine.hpp" />
     <ClInclude Include="lib\include\OdisMath.h" />
     <ClInclude Include="lib\include\Renderer.h" />
@@ -569,6 +561,8 @@
     <ClInclude Include="lib\include\SpriteRenderer.h" />
     <ClInclude Include="lib\include\TextRenderer.h" />
     <ClInclude Include="lib\include\Texture2D.h" />
+    <ClInclude Include="lib\include\utility\OdisConcepts.h" />
+    <ClInclude Include="lib\include\utility\OdisMath.h" />
     <ClInclude Include="lib\include\Window.h" />
     <ClInclude Include="lib\KHR\khrplatform.h" />
     <ClInclude Include="lib\OdisEngine.h" />
@@ -926,6 +920,8 @@
     <ClInclude Include="include\Systems\PhysicsSystem.h" />
     <ClInclude Include="lua\include\config.hpp" />
     <ClInclude Include="lua\include\sol.hpp" />
+    <ClInclude Include="include\ScriptManager.h" />
+    <ClInclude Include="include\OdisConcepts.h" />
     <ClInclude Include="sol\config.hpp" />
     <ClInclude Include="sol\lauxlib.h" />
     <ClInclude Include="sol\lua.h" />
@@ -1223,6 +1219,10 @@
     <None Include="assets\cat_game.toml" />
     <None Include="lib\shaders\text.frag" />
     <None Include="lib\shaders\text.vert" />
+    <None Include="lua54.dll" />
+    <None Include="script\config.lua" />
+    <None Include="script\settings.lua" />
+    <None Include="script\test.lua" />
     <None Include="sol\lua\lua54.dll" />
   </ItemGroup>
   <ItemGroup>
