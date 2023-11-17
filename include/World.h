@@ -32,7 +32,7 @@ concept Component = requires (T component)
 };
 
 template <Component T>
-std::string get_component_name()
+constexpr std::string get_component_name()
 {
 #ifdef __clang__
 	std::abort();

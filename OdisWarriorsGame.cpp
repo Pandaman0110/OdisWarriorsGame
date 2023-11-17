@@ -4,6 +4,7 @@
 #include <Renderer.h>
 #include <Window.h>
 #include <Input.h>
+#include <Log.h>
 
 #include "Game.h"
 #include "Timer.h"
@@ -16,18 +17,21 @@
 using namespace OdisEngine;
 
 const std::string font_path{ "assets/fonts/" };
+const std::string shader_path{ "lib/OdisEngine/shaders/" };
 
-std::unique_ptr<Window> window = std::make_unique<Window>(1920, 1080, "OdisEngineWarriorsGame", false, RenderAPI::OpenGL);
-std::unique_ptr<ResourceManager> resource_manager = std::make_unique<ResourceManager>(font_path);
-std::unique_ptr<Renderer> renderer = std::make_unique<Renderer>(window.get(), resource_manager.get(), ScaleMode::INTEGER);
+std::unique_ptr<Log> logger = std::make_unique<Log>();
+
+std::unique_ptr<Window> window = std::make_unique<Window>(1920, 1080, "OdisEngineWarriorsGame", false, RenderAPI::opengl);
+std::unique_ptr<ResourceManager> resource_manager = std::make_unique<ResourceManager>(font_path, shader_path);
+std::unique_ptr<Renderer> renderer = std::make_unique<Renderer>(window.get(), resource_manager.get(), ScaleMode::integer);
 std::unique_ptr<Input> input = std::make_unique<Input>(window.get());
 std::unique_ptr<Timer> timer = std::make_unique<Timer>();
 std::unique_ptr<GameStateManager> game_state_manager = std::make_unique<GameStateManager>();
 std::unique_ptr<ScriptManager> script_manager = std::make_unique<ScriptManager>();
 
+
 int main()
 {
-
 
 	renderer->set_resolution(glm::ivec2{ 640, 360 });
 

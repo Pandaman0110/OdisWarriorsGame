@@ -8,11 +8,13 @@
 #include <filesystem>
 #include <expected>
 
+#include <Log.h>
+
 #include <sol.hpp>
 //https://sol2.readthedocs.io/en/latest/
 
-#include "utility/OdisConcepts.h"
 
+using namespace OdisEngine;
 
 class Script
 {
@@ -72,15 +74,17 @@ private:
 	{
 		auto script = std::make_unique<Script>(lua_state, script_text);
 		auto result = script->valid();
+
+		auto c = logger->get_channel("Script");
 		
 		if (result)
 		{
-			std::cout << "Script number " << get_num_scripts() << " loaded successfully" << std::endl;
+			c->log(LogLevel::info, "Script number", get_num_scripts(), "loaded succesfully");
 			return script;
 		}
 		else
 		{
-			std::cout << "Script number " << get_num_scripts() << " error message : " << result.error() << std::endl;
+			c->log(LogLevel::warning, "Script number", get_num_scripts(), "error message", result.error());
 			return std::nullopt;
 		}
 	}
@@ -88,6 +92,7 @@ private:
 public:
 	ScriptManager()
 	{
+		logger->create_channel("Script");
 	}
 
 	Script* new_script(const std::string& script_text, sol::state* lua_state, const std::string& script_name)

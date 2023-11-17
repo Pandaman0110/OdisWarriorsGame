@@ -16,5 +16,4 @@ struct Cat
 	}
 };
 
-
 #endif

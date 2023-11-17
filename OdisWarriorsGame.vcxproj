@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -75,24 +75,24 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>include;lib;lib/include;$(IncludePath)</IncludePath>
+    <IncludePath>include;lib;lib/OdisEngine/include;$(IncludePath)</IncludePath>
     <SourcePath>lib;src;$(VC_SourcePath);</SourcePath>
-    <LibraryPath>lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+    <LibraryPath>sol/lua;lib/OdisEngine;lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>include;lib;lib/include;$(IncludePath)</IncludePath>
+    <IncludePath>include;lib;lib/OdisEngine/include;$(IncludePath)</IncludePath>
     <SourcePath>lib;src;$(VC_SourcePath);</SourcePath>
-    <LibraryPath>lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+    <LibraryPath>sol/lua;lib/OdisEngine;lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>include;lib;lib/include;sol;sol/lua/include;$(IncludePath);sol;sol/lua/include</IncludePath>
+    <IncludePath>include;lib;lib/OdisEngine/include;sol;sol/lua/include;$(IncludePath);sol;sol/lua/include</IncludePath>
     <SourcePath>lib;src;$(VC_SourcePath);</SourcePath>
-    <LibraryPath>sol/lua;sol;lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
+    <LibraryPath>sol/lua;lib/OdisEngine;sol/lua;sol;lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>include;lib;lib/include;$(IncludePath);sol;sol/lua/include</IncludePath>
+    <IncludePath>include;lib;lib/OdisEngine/include;$(IncludePath);sol;sol/lua/include</IncludePath>
     <SourcePath>lib;src;$(VC_SourcePath);</SourcePath>
-    <LibraryPath>sol/lua;lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
+    <LibraryPath>sol/lua;lib/OdisEngine;sol/lua;lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -206,6 +206,7 @@
     <ClCompile Include="src\GameStates\MainMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Components\Clan.h" />
     <ClInclude Include="include\Config.h" />
     <ClInclude Include="include\Components\Cat.h" />
     <ClInclude Include="include\Components\PhysicsBodies.h" />
@@ -894,6 +895,26 @@
     <ClInclude Include="lib\OdisEngine\glm\vec4.hpp" />
     <ClInclude Include="lib\OdisEngine\glm\vector_relational.hpp" />
     <ClInclude Include="lib\OdisEngine\GLSLShader.h" />
+    <ClInclude Include="lib\OdisEngine\include\Camera.h" />
+    <ClInclude Include="lib\OdisEngine\include\Color.h" />
+    <ClInclude Include="lib\OdisEngine\include\Font.h" />
+    <ClInclude Include="lib\OdisEngine\include\GLSLShader.h" />
+    <ClInclude Include="lib\OdisEngine\include\Input.h" />
+    <ClInclude Include="lib\OdisEngine\include\InputEvent.h" />
+    <ClInclude Include="lib\OdisEngine\include\Keys.h" />
+    <ClInclude Include="lib\OdisEngine\include\Log.h" />
+    <ClInclude Include="lib\OdisEngine\include\Mesh.h" />
+    <ClInclude Include="lib\OdisEngine\include\OdisEngine.hpp" />
+    <ClInclude Include="lib\OdisEngine\include\Renderer.h" />
+    <ClInclude Include="lib\OdisEngine\include\ResourceManager.h" />
+    <ClInclude Include="lib\OdisEngine\include\ShapeRenderer.h" />
+    <ClInclude Include="lib\OdisEngine\include\Shapes.h" />
+    <ClInclude Include="lib\OdisEngine\include\SpriteRenderer.h" />
+    <ClInclude Include="lib\OdisEngine\include\TextRenderer.h" />
+    <ClInclude Include="lib\OdisEngine\include\Texture2D.h" />
+    <ClInclude Include="lib\OdisEngine\include\utility\OdisConcepts.h" />
+    <ClInclude Include="lib\OdisEngine\include\utility\OdisMath.h" />
+    <ClInclude Include="lib\OdisEngine\include\Window.h" />
     <ClInclude Include="lib\OdisEngine\Input.h" />
     <ClInclude Include="lib\OdisEngine\InputEvent.h" />
     <ClInclude Include="lib\OdisEngine\Keys.h" />
@@ -1075,9 +1096,6 @@
     <None Include="lib\glm\gtx\vector_angle.inl" />
     <None Include="lib\glm\gtx\vector_query.inl" />
     <None Include="lib\glm\gtx\wrap.inl" />
-    <None Include="lib\OdisEngineDebug.idb" />
-    <None Include="lib\OdisEngineDebug.pdb" />
-    <None Include="lib\OdisEngineRelease.pdb" />
     <None Include="lib\OdisEngine\glm\detail\func_common.inl" />
     <None Include="lib\OdisEngine\glm\detail\func_common_simd.inl" />
     <None Include="lib\OdisEngine\glm\detail\func_exponential.inl" />
@@ -1214,11 +1232,16 @@
     <None Include="lib\OdisEngine\glm\gtx\vector_angle.inl" />
     <None Include="lib\OdisEngine\glm\gtx\vector_query.inl" />
     <None Include="lib\OdisEngine\glm\gtx\wrap.inl" />
-    <None Include="lib\shaders\sprite.frag" />
-    <None Include="lib\shaders\sprite.vert" />
+    <None Include="lib\OdisEngine\OdisEngineDebug.idb" />
+    <None Include="lib\OdisEngine\OdisEngineDebug.pdb" />
+    <None Include="lib\OdisEngine\OdisEngineRelease.pdb" />
+    <None Include="lib\OdisEngine\shaders\shape.frag" />
+    <None Include="lib\OdisEngine\shaders\shape.vert" />
+    <None Include="lib\OdisEngine\shaders\sprite.frag" />
+    <None Include="lib\OdisEngine\shaders\sprite.vert" />
+    <None Include="lib\OdisEngine\shaders\text.frag" />
+    <None Include="lib\OdisEngine\shaders\text.vert" />
     <None Include="assets\cat_game.toml" />
-    <None Include="lib\shaders\text.frag" />
-    <None Include="lib\shaders\text.vert" />
     <None Include="lua54.dll" />
     <None Include="script\config.lua" />
     <None Include="script\settings.lua" />
@@ -1229,8 +1252,8 @@
     <Library Include="lib\box2d_debug.lib" />
     <Library Include="lib\box2d_release.lib" />
     <Library Include="lib\freetype.lib" />
-    <Library Include="lib\OdisEngineDebug.lib" />
-    <Library Include="lib\OdisEngineRelease.lib" />
+    <Library Include="lib\OdisEngine\OdisEngineDebug.lib" />
+    <Library Include="lib\OdisEngine\OdisEngineRelease.lib" />
     <Library Include="sol\lua\lua54.lib" />
   </ItemGroup>
   <ItemGroup>

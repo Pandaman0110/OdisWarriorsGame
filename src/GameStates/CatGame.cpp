@@ -35,9 +35,13 @@ CatGame::CatGame()
 	world.assign<Cat>(entity, "CumStar");
 
 	auto state = script_manager->new_lua_state("cum_state");
+
+	state->open_libraries(sol::lib::base, sol::lib::math);
+
+	state->set_function("create_entity", &World::create_entity, &world);
+
 	script = script_manager->new_script("script/test.lua", state, "script");
 
-	state->open_libraries(sol::lib::base);
 
 }
 
@@ -48,11 +52,13 @@ void CatGame::update(float dt)
 	if (input->is_key_pressed(Key::KEY_F))
 		script->execute();
 
+	/*
 	if (input->is_key_pressed(Key::KEY_B))
 		std::cout << "key" << std::endl;
 
 	if (input->is_key_pressed(Key::MOUSE_BUTTON_1))
 		std::cout << "mouse" << std::endl;
+		*/
 
 	physics_system.update_physics();
 

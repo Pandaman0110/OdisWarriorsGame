@@ -2246,6 +2246,69 @@
     <ClInclude Include="lib\include\utility\OdisMath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Components\Clan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\utility\OdisMath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\utility\OdisConcepts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\Color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\Font.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\GLSLShader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\Input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\InputEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\Keys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\OdisEngine.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\Renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\ResourceManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\ShapeRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\Shapes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\SpriteRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\TextRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\Texture2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\Window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="lib\OdisEngine\glm\CMakeLists.txt" />
@@ -3067,27 +3130,29 @@
     <None Include="lib\glm\gtx\wrap.inl">
       <Filter>Header Files</Filter>
     </None>
-    <None Include="lib\OdisEngineRelease.pdb" />
-    <None Include="lib\OdisEngineDebug.idb" />
-    <None Include="lib\OdisEngineDebug.pdb" />
-    <None Include="lib\shaders\sprite.frag" />
-    <None Include="lib\shaders\sprite.vert" />
     <None Include="assets\cat_game.toml" />
-    <None Include="lib\shaders\text.frag" />
-    <None Include="lib\shaders\text.vert" />
     <None Include="sol\lua\lua54.dll" />
     <None Include="lua54.dll" />
     <None Include="script\config.lua" />
     <None Include="script\settings.lua" />
     <None Include="script\test.lua" />
+    <None Include="lib\OdisEngine\OdisEngineDebug.idb" />
+    <None Include="lib\OdisEngine\shaders\shape.frag" />
+    <None Include="lib\OdisEngine\shaders\shape.vert" />
+    <None Include="lib\OdisEngine\shaders\sprite.frag" />
+    <None Include="lib\OdisEngine\shaders\sprite.vert" />
+    <None Include="lib\OdisEngine\shaders\text.frag" />
+    <None Include="lib\OdisEngine\shaders\text.vert" />
+    <None Include="lib\OdisEngine\OdisEngineRelease.pdb" />
+    <None Include="lib\OdisEngine\OdisEngineDebug.pdb" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="lib\OdisEngineDebug.lib" />
-    <Library Include="lib\OdisEngineRelease.lib" />
     <Library Include="lib\box2d_release.lib" />
     <Library Include="lib\box2d_debug.lib" />
     <Library Include="lib\freetype.lib" />
     <Library Include="sol\lua\lua54.lib" />
+    <Library Include="lib\OdisEngine\OdisEngineDebug.lib" />
+    <Library Include="lib\OdisEngine\OdisEngineRelease.lib" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="assets\fonts\EBG_R.ttf" />

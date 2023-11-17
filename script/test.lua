@@ -1,3 +1,3 @@
+local entity = create_entity();
 
-
-print("HERE")
+print(entity)
