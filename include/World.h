@@ -28,7 +28,7 @@ template <typename T>
 concept Component = requires (T component)
 {
 	{ std::is_aggregate_v<T> };
-	{ component.write(std::declval<std::ostream&>()) };
+	//{ component.write(std::declval<std::ostream&>()) };
 };
 
 template <Component T>
@@ -48,6 +48,7 @@ constexpr std::string get_component_name()
 #endif
 }
 
+/*
 template <Component ...T>
 void write_components(std::ostream& os, T...components)
 {
@@ -60,7 +61,7 @@ void write_entity(std::ostream& os, T entity)
 {
 	os << "Entity: " << static_cast<int>(entity) << "\n";
 }
-
+*/
 
 typedef entt::basic_registry<Entity> WorldEntities;
 

@@ -11,7 +11,8 @@
 #include "GameStateManager.h"
 #include "ScriptManager.h"
 
-#include "GameStates.h"
+//#include "GameStates.h"
+#include "CatGame.h"
 #include "Config.h"
 
 using namespace OdisEngine;

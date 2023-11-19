@@ -201,11 +201,11 @@
     <ClCompile Include="lib\imgui\imgui_widgets.cpp" />
     <ClCompile Include="lib\vulkan.c" />
     <ClCompile Include="OdisWarriorsGame.cpp" />
-    <ClCompile Include="src\GameStates\CatGame.cpp" />
-    <ClCompile Include="src\GameStates\LevelEditor.cpp" />
-    <ClCompile Include="src\GameStates\MainMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\CatGame.h" />
+    <ClInclude Include="include\CatGenerator.h" />
+    <ClInclude Include="include\ClanGenerator.h" />
     <ClInclude Include="include\Components\Clan.h" />
     <ClInclude Include="include\Config.h" />
     <ClInclude Include="include\Components\Cat.h" />
@@ -214,7 +214,6 @@
     <ClInclude Include="include\Components\Transform.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\GameStateManager.h" />
-    <ClInclude Include="include\GameStates.h" />
     <ClInclude Include="include\World.h" />
     <ClInclude Include="lib\box2d\b2_api.h" />
     <ClInclude Include="lib\box2d\b2_block_allocator.h" />
@@ -1243,9 +1242,12 @@
     <None Include="lib\OdisEngine\shaders\text.vert" />
     <None Include="assets\cat_game.toml" />
     <None Include="lua54.dll" />
+    <None Include="script\cat_generator.lua" />
+    <None Include="script\cat_names.lua" />
     <None Include="script\config.lua" />
+    <None Include="script\input_map.lua" />
     <None Include="script\settings.lua" />
-    <None Include="script\test.lua" />
+    <None Include="script\clan_generator.lua" />
     <None Include="sol\lua\lua54.dll" />
   </ItemGroup>
   <ItemGroup>

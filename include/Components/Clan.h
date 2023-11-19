@@ -8,13 +8,13 @@
 struct Clan
 {
 	std::string name;
-
-	inline void write(std::ostream& os)
-	{
-		os << get_component_name<Clan>() << "\n";
-		os << "Name: " << name << "\n";
-	}
 };
+
+inline std::ostream& operator <<(std::ostream& os, const Clan& cat)
+{
+	os << "Name: " << cat.name;
+	return os;
+}
 
 
 #endif

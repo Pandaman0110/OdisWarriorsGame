@@ -7,13 +7,21 @@
 
 struct Cat
 {
-	std::string name;
-
-	inline void write(std::ostream& os)
-	{
-		os << get_component_name<Cat>() << "\n";
-		os << "Name: " << name << "\n";
-	}
+	std::string prefix;
+	std::string suffix;
+	std::string role;
 };
+
+inline std::string get_name(const Cat& cat)
+{
+	return cat.prefix + cat.suffix;
+}
+
+inline std::ostream& operator <<(std::ostream& os, const Cat& cat)
+{
+	os << "Name: " << get_name(cat) << " ";
+	os << "Role: " << cat.role;
+	return os;
+}
 
 #endif

@@ -27,9 +27,6 @@
     <ClCompile Include="lib\glm\detail\glm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\GameStates\MainMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="lib\imgui\imgui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -52,12 +49,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="lib\imgui\imgui_widgets.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameStates\LevelEditor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameStates\CatGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2135,9 +2126,6 @@
     <ClInclude Include="lib\vk_platform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameStates.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Timer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -2307,6 +2295,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="lib\OdisEngine\include\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ClanGenerator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CatGenerator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CatGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -3135,7 +3132,7 @@
     <None Include="lua54.dll" />
     <None Include="script\config.lua" />
     <None Include="script\settings.lua" />
-    <None Include="script\test.lua" />
+    <None Include="script\clan_generator.lua" />
     <None Include="lib\OdisEngine\OdisEngineDebug.idb" />
     <None Include="lib\OdisEngine\shaders\shape.frag" />
     <None Include="lib\OdisEngine\shaders\shape.vert" />
@@ -3145,6 +3142,9 @@
     <None Include="lib\OdisEngine\shaders\text.vert" />
     <None Include="lib\OdisEngine\OdisEngineRelease.pdb" />
     <None Include="lib\OdisEngine\OdisEngineDebug.pdb" />
+    <None Include="script\cat_generator.lua" />
+    <None Include="script\cat_names.lua" />
+    <None Include="script\input_map.lua" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\box2d_release.lib" />

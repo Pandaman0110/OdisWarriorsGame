@@ -47,7 +47,6 @@ public:
 			return true;
 	};
 
-
 	void execute()
 	{
 		auto script_result = script();
@@ -55,10 +54,28 @@ public:
 		for (auto err : script_result)
 		{
 			sol::error error = err;
-			std::cout << error.what() << std::endl;
+			logger->get_channel("Script")->log(LogLevel::warning, error.what());
 		}
+	}
 
-
+	template <typename Rt>
+	decltype(auto) execute()
+	{
+		auto script_result = script();
+		
+		if (script_result.valid()) 
+		{
+			return static_cast<Rt>(script_result);
+		}
+		else
+		{
+			for (auto err : script_result)
+			{
+				sol::error error = err;
+				logger->get_channel("Script")->log(LogLevel::warning, error.what());
+			}
+			return static_cast<Rt>(script_result);
+		}
 	}
 };
 
@@ -75,16 +92,16 @@ private:
 		auto script = std::make_unique<Script>(lua_state, script_text);
 		auto result = script->valid();
 
-		auto c = logger->get_channel("Script");
+		auto ch = logger->get_channel("Script");
 		
 		if (result)
 		{
-			c->log(LogLevel::info, "Script number", get_num_scripts(), "loaded succesfully");
+			ch->log(LogLevel::info, "Script number", get_num_scripts(), "loaded succesfully");
 			return script;
 		}
 		else
 		{
-			c->log(LogLevel::warning, "Script number", get_num_scripts(), "error message", result.error());
+			ch->log(LogLevel::warning, "Script number", get_num_scripts(), "error message", result.error());
 			return std::nullopt;
 		}
 	}
@@ -124,7 +141,15 @@ public:
 	sol::state* new_lua_state(const std::string& state_name)
 	{
 		lua_states.insert({ state_name, std::make_unique<sol::state>() });
-		return get_lua_state(state_name);
+		auto state = get_lua_state(state_name);
+
+		state->open_libraries(sol::lib::base, sol::lib::math, sol::lib::package, sol::lib::table, sol::lib::string);
+
+		//this code allows require to find scripts in script/
+		const std::string package_path = state->traverse_get<std::string>("package", "path");
+		state->traverse_set("package", "path", package_path + (!package_path.empty() ? ";" : "") + "script/" + "?.lua");
+
+		return state;
 	}
 
 	sol::state* get_lua_state(const std::string& state_name)
