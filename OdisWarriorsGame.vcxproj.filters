@@ -3145,6 +3145,8 @@
     <None Include="script\cat_generator.lua" />
     <None Include="script\cat_names.lua" />
     <None Include="script\input_map.lua" />
+    <None Include="script\cat_data.lua" />
+    <None Include="assets\data\cat_names.toml" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\box2d_release.lib" />

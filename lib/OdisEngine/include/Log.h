@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <map>
+#include <format>
 
 
 namespace OdisEngine
@@ -97,7 +98,7 @@ namespace OdisEngine
 		/**
 		 * this function flushes the buffer.
 		 * 
-		 * \param log_level the OdisEngine::LogLevel of the log message.
+		 * \param level the OdisEngine::LogLevel of the log message.
 		 * \tparam args comma seperated list of OdisEngine::Printable values.
 		 */
 		template <Printable...Args>
@@ -111,6 +112,20 @@ namespace OdisEngine
 				std::cout << std::endl;
 			}
 		}
+		
+		/// %Log stuff using a format string like std::print or printf
+		/**
+		 * This function will cause a compile time error if fmt is not a valid std::format_string
+		 *
+		 * \param level the OdisEngine::LogLevel of the log message.
+		 * \param fmt the format string
+		 * \tparam args comma seperated list of OdisEngine::Printable values.
+		 */
+		template <Printable ...Args>
+		void logf(LogLevel level, const std::format_string<Args...> fmt, Args&& ...args)
+		{
+			log(level, std::vformat(fmt.get(), std::make_format_args(args...)));
+		}
 
 		/// %Log stuff with the default OdisEngine::LogLevel and OdisEngine::Printable values.
 		/**
@@ -121,16 +136,9 @@ namespace OdisEngine
 		void log(Args&&...args)
 		{
 			log(default_level, std::forward<Args>(args)...);
-			/*
-			if (valid_level(default_level))
-			{
-				std::cout << name << ": ";
-				std::cout << default_level << " - ";
-				((std::cout << std::forward<Args>(args) << ", "), ...);
-				std::cout << std::endl;
-			}
-			*/
 		}
+
+	
 
 		/// sets the current OdisEngine::Channel::filter_level
 		constexpr void set_filter(LogLevel level) { filter_level = level; };
@@ -163,7 +171,7 @@ namespace OdisEngine
 	public:
 		Log()
 		{
-
+			create_channel("FileSystem");
 		};
 
 		/// %Log stuff with a OdisEngine::LogLevel and OdisEngine::Printable values.
@@ -183,6 +191,20 @@ namespace OdisEngine
 				((std::cout << std::forward<Args>(args) << " "), ...);
 				std::cout << std::endl;
 			}
+		}
+
+		/// %Log stuff using a format string like std::print or printf
+		/**
+		 * This function will cause a compile time error if fmt is not a valid std::format_string
+		 * 
+		 * \param level the OdisEngine::LogLevel of the log message.
+		 * \param fmt the format string
+		 * \tparam args comma seperated list of OdisEngine::Printable values.
+		 */
+		template <Printable ...Args>
+		void logf(LogLevel level, const std::format_string<Args...> fmt, Args&& ...args)
+		{
+			log(level, std::vformat(fmt.get(), std::make_format_args(args...)));
 		}
 
 		/// %Log stuff with the default OdisEngine::LogLevel and OdisEngine::Printable values.

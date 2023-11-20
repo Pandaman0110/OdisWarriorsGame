@@ -10,6 +10,8 @@ cat.prefix = lume.randomchoice(cat_data.prefixes)
 cat.suffix = lume.randomchoice(cat_data.suffixes)
 cat.role = lume.randomchoice(cat_data.roles)
 
+print(#cat_data.prefixes)
+
 
 
 -----------------------------------

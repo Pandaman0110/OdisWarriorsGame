@@ -108,6 +108,7 @@
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
       <DisableSpecificWarnings>4099;</DisableSpecificWarnings>
+      <ExceptionHandling>false</ExceptionHandling>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,6 +132,7 @@
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
       <DisableSpecificWarnings>4099;</DisableSpecificWarnings>
+      <ExceptionHandling>false</ExceptionHandling>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -154,6 +156,7 @@
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
       <DisableSpecificWarnings>4099;</DisableSpecificWarnings>
+      <ExceptionHandling>false</ExceptionHandling>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -178,6 +181,7 @@
       <AdditionalModuleDependencies>
       </AdditionalModuleDependencies>
       <DisableSpecificWarnings>4099;</DisableSpecificWarnings>
+      <ExceptionHandling>false</ExceptionHandling>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -959,6 +963,7 @@
     <Text Include="lib\OdisEngine\glm\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="assets\data\cat_names.toml" />
     <None Include="lib\glm\detail\func_common.inl" />
     <None Include="lib\glm\detail\func_common_simd.inl" />
     <None Include="lib\glm\detail\func_exponential.inl" />
@@ -1242,6 +1247,7 @@
     <None Include="lib\OdisEngine\shaders\text.vert" />
     <None Include="assets\cat_game.toml" />
     <None Include="lua54.dll" />
+    <None Include="script\cat_data.lua" />
     <None Include="script\cat_generator.lua" />
     <None Include="script\cat_names.lua" />
     <None Include="script\config.lua" />
