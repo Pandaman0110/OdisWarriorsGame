@@ -54,7 +54,7 @@ public:
 		for (auto err : script_result)
 		{
 			sol::error error = err;
-			logger->get_channel("Script")->log(LogLevel::warning, error.what());
+			logger->get("Script")->log(LogLevel::warning, error.what());
 		}
 	}
 
@@ -72,7 +72,7 @@ public:
 			for (auto err : script_result)
 			{
 				sol::error error = err;
-				logger->get_channel("Script")->log(LogLevel::warning, error.what());
+				logger->get("Script")->log(LogLevel::warning, error.what());
 			}
 			return static_cast<Rt>(script_result);
 		}
@@ -92,7 +92,7 @@ private:
 		auto script = std::make_unique<Script>(lua_state, script_text);
 		auto result = script->valid();
 
-		auto ch = logger->get_channel("Script");
+		auto ch = logger->get("Script");
 		
 		if (result)
 		{
@@ -109,7 +109,7 @@ private:
 public:
 	ScriptManager()
 	{
-		logger->create_channel("Script");
+		logger->create("Script");
 	}
 
 	Script* new_script(const std::string& script_text, sol::state* lua_state, const std::string& script_name)

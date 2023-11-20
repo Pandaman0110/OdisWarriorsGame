@@ -21,7 +21,7 @@ private:
 public:
 	RenderSystem()
 	{
-		auto &font = resource_manager->load_font("arial.ttf", "my_font", 48);
+		auto &font = resource_manager->load_font("ebg_r.ttf", "my_font", 48);
 		renderer->set_font(font);
 	};
 
@@ -32,7 +32,7 @@ public:
 		auto &text = resource_manager->load_texture("assets/textures/cat_textures/catgreyidle.png", "cat", true);
 		renderer->draw_texture(text, transform.position, transform.rotation);
 
-		renderer->draw_text("cum", glm::vec2{ 300, 300 });
+		renderer->draw_text("Hello world", glm::vec2{ 350, 200 });
 	}
 
 };

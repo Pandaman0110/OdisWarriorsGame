@@ -3,6 +3,7 @@
 
 #include <algorithm>
 #include <random>
+#include <ranges>
 
 #include <FileSystem.h>
 
@@ -73,9 +74,11 @@ public:
 	{
 		Cat cat{};
 
-		FileSystem::load_toml_as<std::string>("assets/data/cat_names.toml", "prefixes");
+		cat_prefixes.assign_range(FileSystem::load_toml_array<std::string>("assets/data/cat_names.toml", "prefixes"));
+		cat_suffixes.assign_range(FileSystem::load_toml_array<std::string>("assets/data/cat_names.toml", "suffixes"));
 
-		logger->logf(LogLevel::info, "{0} {1}!", "Hello", "World");
+		logger->get("Warriors")->log(LogLevel::debug, "Number of prefixes loaded", cat_prefixes.size());
+		logger->get("Warriors")->log(LogLevel::debug, "Number of suffixes loaded", cat_suffixes.size());
 
 		return cat;
 	};

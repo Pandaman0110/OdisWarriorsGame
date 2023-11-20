@@ -2309,6 +2309,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="lib\OdisEngine\glm\CMakeLists.txt" />
+    <Text Include="assets\fonts\ocraext.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="lib\OdisEngine\glm\detail\func_common.inl">
@@ -3157,7 +3158,8 @@
     <Library Include="lib\OdisEngine\OdisEngineRelease.lib" />
   </ItemGroup>
   <ItemGroup>
-    <Font Include="assets\fonts\EBG_R.ttf" />
+    <Font Include="assets\fonts\ebg_r.ttf" />
     <Font Include="assets\fonts\angrela.ttf" />
+    <Font Include="assets\fonts\arial.ttf" />
   </ItemGroup>
 </Project>

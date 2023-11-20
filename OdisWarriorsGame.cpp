@@ -33,6 +33,7 @@ std::unique_ptr<ScriptManager> script_manager = std::make_unique<ScriptManager>(
 
 int main()
 {
+	logger->create("Warriors");
 
 	renderer->set_resolution(glm::ivec2{ 640, 360 });
 

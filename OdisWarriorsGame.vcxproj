@@ -960,6 +960,7 @@
     <ClInclude Include="sol\sol.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="assets\fonts\ocraext.ttf" />
     <Text Include="lib\OdisEngine\glm\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -1266,7 +1267,8 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="assets\fonts\angrela.ttf" />
-    <Font Include="assets\fonts\EBG_R.ttf" />
+    <Font Include="assets\fonts\arial.ttf" />
+    <Font Include="assets\fonts\ebg_r.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
