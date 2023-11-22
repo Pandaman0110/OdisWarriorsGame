@@ -14,6 +14,7 @@
 
 using namespace OdisEngine;
 
+
 class RenderSystem
 {
 private:
@@ -21,18 +22,19 @@ private:
 public:
 	RenderSystem()
 	{
-		auto &font = resource_manager->load_font("ebg_r.ttf", "my_font", 48);
-		renderer->set_font(font);
+		renderer->set_font(resource_manager->load_font("ebg_r.ttf", 50, "my_font"));
+		resource_manager->load_texture("assets/textures/cat_textures/catgreyidle.png", true, "cat");
+
 	};
 
 	void operator()(float dt, Transform2D& transform)
 	{
 		renderer->draw_rect(glm::ivec2{ 200, 200 }, glm::ivec2{ 200, 200 }, Color{ 0.5f, 0.2f, 0.2f });
 
-		auto &text = resource_manager->load_texture("assets/textures/cat_textures/catgreyidle.png", "cat", true);
-		renderer->draw_texture(text, transform.position, transform.rotation);
+		renderer->draw_texture(resource_manager->get_texture("cat"), transform.position, transform.rotation);
 
-		renderer->draw_text("Hello world", glm::vec2{ 350, 200 });
+		renderer->draw_text(std::to_string(timer->get_fps()), glm::vec2{10, 10}, Color{1.0f, 1.0f, 1.0f});
+		//renderer->draw_text()
 	}
 
 };

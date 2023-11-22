@@ -22,7 +22,7 @@ const std::string shader_path{ "lib/OdisEngine/shaders/" };
 
 std::unique_ptr<Log> logger = std::make_unique<Log>();
 
-std::unique_ptr<Window> window = std::make_unique<Window>(1920, 1080, "OdisEngineWarriorsGame", false, RenderAPI::opengl);
+std::unique_ptr<Window> window = std::make_unique<Window>(1920, 1080, "OdisEngineWarriorsGame", false, true, RenderAPI::opengl);
 std::unique_ptr<ResourceManager> resource_manager = std::make_unique<ResourceManager>(font_path, shader_path);
 std::unique_ptr<Renderer> renderer = std::make_unique<Renderer>(window.get(), resource_manager.get(), ScaleMode::integer);
 std::unique_ptr<Input> input = std::make_unique<Input>(window.get());
@@ -39,13 +39,20 @@ int main()
 
 	game_state_manager->change_state(std::make_unique<GameState::CatGame>());
 
+	double time{ 0 };
+
+	timer->start();
+
 	while (!window->should_close())
 	{
 		timer->update();
 		input->poll_inputs(timer->get_delta_time());
 		window->poll();
 
+		//time += timer->get_delta_time()
 
+		//std::cout << timer->get_fps() << std::endl;;
+	
 		//.substr(0, 3)
 		if (input->is_key_pressed(Key::KEY_ESCAPE))
 			break;
@@ -54,6 +61,8 @@ int main()
 
 		window->swap_buffers();
 	}
+
+	timer->stop();
 
 	window->terminate();
 
