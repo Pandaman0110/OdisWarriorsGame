@@ -67,7 +67,6 @@ namespace GameState
 
 		void update(float dt) override
 		{
-			renderer->clear(232.0f / 255.0f, 209.0f / 255.0f, 169.0f / 255.0f);
 
 			//if (input->is_key_pressed(Key::KEY_F))
 				//script->execute();

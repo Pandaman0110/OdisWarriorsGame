@@ -1274,6 +1274,9 @@
     <Font Include="assets\fonts\arial.ttf" />
     <Font Include="assets\fonts\ebg_r.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\textures\Mapwarriors.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

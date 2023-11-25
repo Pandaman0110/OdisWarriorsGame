@@ -3162,4 +3162,9 @@
     <Font Include="assets\fonts\angrela.ttf" />
     <Font Include="assets\fonts\arial.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\textures\Mapwarriors.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
