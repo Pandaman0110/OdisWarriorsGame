@@ -37,7 +37,7 @@ public:
 
 		renderer->draw_text(std::to_string(timer->get_fps()), glm::vec2{10, 10}, Color{1.0f, 1.0f, 1.0f});
 
-		renderer->draw_polygon(glm::ivec2{ 600, 700 }, 300, 200, glm::vec3{ 1.0f, 1.0f, 1.0f });
+		renderer->draw_polygon(glm::ivec2{ 600, 700 }, 300, 6, glm::vec3{ 1.0f, 1.0f, 1.0f });
 	}
 
 };

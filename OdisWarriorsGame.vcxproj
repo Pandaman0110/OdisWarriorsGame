@@ -214,6 +214,7 @@
     <ClInclude Include="include\CatGame.h" />
     <ClInclude Include="include\CatGenerator.h" />
     <ClInclude Include="include\ClanGenerator.h" />
+    <ClInclude Include="include\Components.h" />
     <ClInclude Include="include\Components\Clan.h" />
     <ClInclude Include="include\Config.h" />
     <ClInclude Include="include\Components\Cat.h" />
@@ -222,6 +223,8 @@
     <ClInclude Include="include\Components\Transform.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\GameStateManager.h" />
+    <ClInclude Include="include\Gui.h" />
+    <ClInclude Include="include\GuiComponents.h" />
     <ClInclude Include="include\World.h" />
     <ClInclude Include="lib\box2d\b2_api.h" />
     <ClInclude Include="lib\box2d\b2_block_allocator.h" />
@@ -1255,8 +1258,6 @@
     <None Include="script\cat_data.lua" />
     <None Include="script\cat_generator.lua" />
     <None Include="script\cat_names.lua" />
-    <None Include="script\config.lua" />
-    <None Include="script\input_map.lua" />
     <None Include="script\settings.lua" />
     <None Include="script\clan_generator.lua" />
     <None Include="sol\lua\lua54.dll" />

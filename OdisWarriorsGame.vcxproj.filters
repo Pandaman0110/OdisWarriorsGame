@@ -2306,6 +2306,15 @@
     <ClInclude Include="include\CatGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Gui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GuiComponents.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Components.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="lib\OdisEngine\glm\CMakeLists.txt" />
@@ -3131,7 +3140,6 @@
     <None Include="assets\cat_game.toml" />
     <None Include="sol\lua\lua54.dll" />
     <None Include="lua54.dll" />
-    <None Include="script\config.lua" />
     <None Include="script\settings.lua" />
     <None Include="script\clan_generator.lua" />
     <None Include="lib\OdisEngine\OdisEngineDebug.idb" />
@@ -3145,7 +3153,6 @@
     <None Include="lib\OdisEngine\OdisEngineDebug.pdb" />
     <None Include="script\cat_generator.lua" />
     <None Include="script\cat_names.lua" />
-    <None Include="script\input_map.lua" />
     <None Include="script\cat_data.lua" />
     <None Include="assets\data\cat_names.toml" />
   </ItemGroup>

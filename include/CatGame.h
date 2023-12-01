@@ -7,7 +7,9 @@
 #include <type_traits>
 #include <vector>
 
+#include <Camera.h>
 #include <Input.h>
+#include <Renderer.h>
 
 #include "GameStateManager.h"
 #include "World.h"
@@ -15,11 +17,8 @@
 #include "ScriptManager.h"
 #include "CatGenerator.h"
 #include "ClanGenerator.h"
-#include "Components/Cat.h"
-#include "Components/Clan.h"
-#include "Components/Transform.h"
-#include "Components/Sprite.h"
-#include "Components/PhysicsBodies.h"
+#include "Components.h"
+#include "Gui.h"
 
 #include "Systems/RenderSystem.h"
 #include "Systems/PhysicsSystem.h"
@@ -40,20 +39,23 @@ namespace GameState
 
 		CatGenerator cat_generator;
 		ClanGenerator clan_generator;
+
+		Entity me;
 	public:
 
 		CatGame()
 		{
-			auto entity = world.create_entity();
-			auto& body = world.assign<KinematicBody2D>(entity);
+			auto me = world.create_entity();
+			auto& body = world.assign<KinematicBody2D>(me);
 
 			physics_system.add_physics_component(body, 1, 1);
 			auto& cum = body.body;
 
-			world.assign<Transform2D>(entity);
-			world.assign<Cat>(entity, "CumStar");
+			world.assign<Transform2D>(me);
+			world.assign<Cat>(me, "CumStar");
 
 			auto state = script_manager->new_lua_state("Warriors");
+
 
 			cat_generator = { state };
 			clan_generator = { state };
@@ -63,21 +65,17 @@ namespace GameState
 
 			logger->log(cat);
 			logger->log(clan);
+
+			OdisGui::Gui gui;
+
+			//gui.
+
+			std::cout << std::size(gui) << std::endl;
 		}
 
 		void update(float dt) override
 		{
 
-			//if (input->is_key_pressed(Key::KEY_F))
-				//script->execute();
-
-			/*
-			if (input->is_key_pressed(Key::KEY_B))
-				std::cout << "key" << std::endl;
-
-			if (input->is_key_pressed(Key::MOUSE_BUTTON_1))
-				std::cout << "mouse" << std::endl;
-				*/
 
 			physics_system.update_physics();
 

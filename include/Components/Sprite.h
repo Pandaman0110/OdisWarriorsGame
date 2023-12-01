@@ -8,7 +8,7 @@
 
 struct Sprite
 {
-	Texture2D texture;
+	Texture texture;
 
 	inline void write(std::ostream& os)
 	{

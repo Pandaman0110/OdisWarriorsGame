@@ -83,6 +83,12 @@ public:
 	}
 
 	template <Component T>
+	auto& get(Entity ent)
+	{
+		return world_entities.get<T>(ent);
+	}
+
+	template <Component T>
 	auto on_construct()
 	{
 		return world_entities.on_construct<T>();
