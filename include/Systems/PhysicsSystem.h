@@ -15,10 +15,10 @@
 #include "World.h"
 
 
-const float PIXELS_PER_METER = 1.0f / 50.0f;
-const float TIME_STEP = 1.0f / 60.0f;
-const uint8_t VELOCITY_ITERATIONS = 8;
-const uint8_t POSITION_ITERATIONS = 3;
+constexpr float pixels_per_meter = 1.0f / 50.0f;
+constexpr float time_step = 1.0f / 60.0f;
+constexpr uint8_t velocity_iterations = 8;
+constexpr uint8_t position_iterations = 3;
 
 
 template <typename T>
@@ -104,16 +104,20 @@ public:
 
 		set_linear_velocity(physics_component, normalized);
 
-		glm::ivec2 position { glm::round(to_pixel(get_position(physics_component))) };
-		transform.position.x = position.x;
-		transform.position.y = position.y;
+		glm::vec2 position { to_pixel(get_position(physics_component)) };
+
+		if (transform.position.x != position.x)
+			transform.position.x = position.x;
+
+		if (transform.position.y != position.y)
+			transform.position.y = position.y;
 
 		//std::cout << "X: " << transform.position.x << " Y: " << transform.position.y << std::endl;
 	}
 
 	inline void update_physics()
 	{
-		this->physics_world->Step(TIME_STEP, VELOCITY_ITERATIONS, POSITION_ITERATIONS);
+		this->physics_world->Step(time_step, velocity_iterations, position_iterations);
 	}
 
 	//TODO
@@ -146,19 +150,19 @@ public:
 	}
 	glm::vec2 to_world(glm::vec2 pixel_position)
 	{
-		return glm::vec2{ pixel_position.x * PIXELS_PER_METER, pixel_position.x * PIXELS_PER_METER };
+		return glm::vec2{ pixel_position.x * pixels_per_meter, pixel_position.x * pixels_per_meter };
 	}
 	float to_world_scalar(float scalar)
 	{
-		static_cast<float>(scalar * PIXELS_PER_METER);
+		static_cast<float>(scalar * pixels_per_meter);
 	}
 	glm::vec2 to_pixel(glm::vec2 world_position)
 	{
-		return glm::vec2{ world_position.x / PIXELS_PER_METER, world_position.y / PIXELS_PER_METER };
+		return glm::vec2{ world_position.x / pixels_per_meter, world_position.y / pixels_per_meter };
 	}
 	float to_pixel_scalar(float scalar)
 	{
-		return static_cast<float>(scalar / PIXELS_PER_METER);
+		return static_cast<float>(scalar / pixels_per_meter);
 	}
 };
 

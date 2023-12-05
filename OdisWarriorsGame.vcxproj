@@ -211,6 +211,9 @@
     <ClCompile Include="OdisWarriorsGame.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Components\Player.h" />
+    <ClInclude Include="include\Systems\CameraSystem.h" />
+    <ClInclude Include="include\Camera.h" />
     <ClInclude Include="include\CatGame.h" />
     <ClInclude Include="include\CatGenerator.h" />
     <ClInclude Include="include\ClanGenerator.h" />
@@ -947,7 +950,6 @@
     <ClInclude Include="lib\vk_platform.h" />
     <ClInclude Include="include\Timer.h" />
     <ClInclude Include="include\Systems\RenderSystem.h" />
-    <ClInclude Include="include\Systems.h" />
     <ClInclude Include="include\Systems\PhysicsSystem.h" />
     <ClInclude Include="lua\include\config.hpp" />
     <ClInclude Include="lua\include\sol.hpp" />

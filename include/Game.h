@@ -19,7 +19,6 @@ class GameStateManager;
 class ScriptManager;
 
 extern std::unique_ptr<OdisEngine::Window> window;
-extern std::unique_ptr<OdisEngine::ResourceManager> resource_manager;
 extern std::unique_ptr<OdisEngine::Renderer> renderer;
 extern std::unique_ptr<OdisEngine::Input> input;
 extern std::unique_ptr<Timer> timer;

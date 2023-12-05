@@ -23,21 +23,12 @@ public:
 	RenderSystem()
 	{
 		renderer->set_font(resource_manager->load_font("ebg_r.ttf", 24, "my_font"));
-		resource_manager->load_texture("assets/textures/cat_textures/catgreyidle.png", true, "cat");
 
 	};
 
-	void operator()(float dt, Transform2D& transform)
+	void operator()(float dt, Sprite& sprite, Transform2D& transform)
 	{
-		renderer->clear(232.0f / 255.0f, 209.0f / 255.0f, 169.0f / 255.0f);
-
-		renderer->draw_rect(glm::ivec2{ 200, 200 }, glm::ivec2{ 200, 200 }, Color{ 0.5f, 0.2f, 0.2f });
-
-		renderer->draw_texture(resource_manager->get_texture("cat"), transform.position, transform.rotation);
-
-		renderer->draw_text(std::to_string(timer->get_fps()), glm::vec2{10, 10}, Color{1.0f, 1.0f, 1.0f});
-
-		renderer->draw_polygon(glm::ivec2{ 600, 700 }, 300, 6, glm::vec3{ 1.0f, 1.0f, 1.0f });
+		renderer->draw_texture(sprite.texture, transform.position, transform.rotation);
 	}
 
 };

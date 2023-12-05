@@ -2,6 +2,7 @@
 #define COMPONENTS_H
 
 #include "Components/Cat.h"
+#include "Components/Player.h"
 #include "Components/Clan.h"
 #include "Components/PhysicsBodies.h"
 #include "Components/Sprite.h"

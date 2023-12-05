@@ -79,7 +79,7 @@ public:
 	template <Component T, typename...Arg> //requries Aggregate<Component>
 	T& assign(Entity ent, Arg&&...args)
 	{
-		return world_entities.emplace<T>(ent, std::forward<Arg...>(args)...);
+		return world_entities.emplace<T>(ent, std::forward<Arg>(args)...);
 	}
 
 	template <Component T>

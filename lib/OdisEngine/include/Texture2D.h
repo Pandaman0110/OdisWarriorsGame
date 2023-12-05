@@ -54,11 +54,5 @@ namespace OdisEngine
             glBindTexture(GL_TEXTURE_2D, this->ID);
         }
     };
-
-    class TextureAtlas
-    {
-        
-    };
-
 }
 #endif

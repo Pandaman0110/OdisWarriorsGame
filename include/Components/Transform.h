@@ -9,7 +9,7 @@
 
 struct Transform2D
 {
-	glm::ivec2 position { 0, 0 };
+	glm::vec2 position { 0, 0 };
 	float rotation = 0;
 	glm::vec2 scale = { 1, 1 };
 
