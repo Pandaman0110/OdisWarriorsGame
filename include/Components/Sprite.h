@@ -13,9 +13,9 @@ struct Sprite
 	inline void write(std::ostream& os)
 	{
 		os << get_component_name<Sprite>() << "\n";
-		os << "ID: " << texture.ID << "\n";
-		os << "Name: " << texture.name << "\n";
+		os << "ID: " << texture.id << "\n";
 	}
 
 };
+
 #endif

@@ -57,7 +57,7 @@ namespace GameState
 			world.assign<Transform2D>(me);
 			world.assign<Player>(me, PlayerNumbers::one);
 			world.assign<Cat>(me, "CumStar");
-			world.assign<Sprite>(me, resource_manager->load_texture("assets/textures/cat_textures/catgreyidle.png", true, "cat"));
+			world.assign<Sprite>(me, resource_manager->load_texture("assets/textures/cat_textures/catgreyidle.png", "cat"));
 
 			auto state = script_manager->new_lua_state("Warriors");
 
@@ -77,13 +77,12 @@ namespace GameState
 
 		void update(float dt) override
 		{
-
 			physics_system.update_physics();
 
 			renderer->clear(232.0f / 255.0f, 209.0f / 255.0f, 169.0f / 255.0f);
 			renderer->draw_rect(glm::ivec2{ 200, 200 }, glm::ivec2{ 200, 200 }, Color{ 0.5f, 0.2f, 0.2f });
 			renderer->draw_text(std::to_string(timer->get_fps()), glm::vec2{ 10, 10 }, Color{ 0.0f, 0.0f, 0.0f });
-			renderer->draw_polygon(glm::ivec2{ 600, 700 }, 300, 6, glm::vec3{ 1.0f, 1.0f, 1.0f });
+			renderer->draw_polygon(glm::ivec2{ 0, 0 }, 100, 6, glm::vec3{ 1.0f, 1.0f, 1.0f });
 
 			world.update_system(std::function<void(float, KinematicBody2D&, Transform2D&)>{ std::ref(physics_system) }, dt);
 			world.update_system(std::function<void(float, Player&, Sprite&, Transform2D&)>{ std::ref(camera_system) }, dt);

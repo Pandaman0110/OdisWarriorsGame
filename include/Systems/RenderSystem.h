@@ -28,7 +28,14 @@ public:
 
 	void operator()(float dt, Sprite& sprite, Transform2D& transform)
 	{
-		renderer->draw_texture(sprite.texture, transform.position, transform.rotation);
+		for (size_t i = 0; i < 100; i++)
+		{
+			for (size_t j = 0; j < 40; j++)
+			{
+				renderer->draw_texture(sprite.texture, transform.position + glm::vec2{i * 30, j * 30}, transform.rotation);
+			}
+		}
+		//renderer->draw_texture(sprite.texture, transform.position, transform.rotation);
 	}
 
 };
