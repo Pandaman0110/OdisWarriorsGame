@@ -97,7 +97,7 @@ namespace GameState
 			world.update_system(std::function<void(float, Sprite&, Transform2D&)>{ std::ref(render_system) }, dt);
 
 			
-
+			std::cout << logger->rdbuf();
 			renderer->flush();
 		}
 

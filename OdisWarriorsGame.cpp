@@ -21,7 +21,7 @@ using namespace OdisEngine;
 const std::string font_path{ "assets/fonts/" };
 const std::string shader_path{ "lib/OdisEngine/shaders/" };
 
-std::unique_ptr<Log> logger = std::make_unique<Log>();
+std::unique_ptr<Logger> logger = std::make_unique<Logger>();
 std::unique_ptr<ResourceManager> resource_manager = std::make_unique<ResourceManager>(font_path, shader_path);
 
 std::unique_ptr<Window> window = std::make_unique<Window>(1920, 1080, "OdisEngineWarriorsGame", false, false, true);
