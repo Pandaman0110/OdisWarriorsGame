@@ -910,7 +910,10 @@
     <ClInclude Include="lib\OdisEngine\GLSLShader.h" />
     <ClInclude Include="lib\OdisEngine\include\Camera.h" />
     <ClInclude Include="lib\OdisEngine\include\Color.h" />
+    <ClInclude Include="lib\OdisEngine\include\FileSystem.h" />
     <ClInclude Include="lib\OdisEngine\include\Font.h" />
+    <ClInclude Include="lib\OdisEngine\include\FrameBuffer.h" />
+    <ClInclude Include="lib\OdisEngine\include\FrameBufferRenderer.h" />
     <ClInclude Include="lib\OdisEngine\include\GLSLShader.h" />
     <ClInclude Include="lib\OdisEngine\include\Input.h" />
     <ClInclude Include="lib\OdisEngine\include\InputEvent.h" />

@@ -80,13 +80,25 @@ namespace GameState
 			physics_system.update_physics();
 
 			renderer->clear(232.0f / 255.0f, 209.0f / 255.0f, 169.0f / 255.0f);
-			renderer->draw_rect(glm::ivec2{ 200, 200 }, glm::ivec2{ 200, 200 }, Color{ 0.5f, 0.2f, 0.2f });
+			//renderer->draw_rect(glm::ivec2{ 200, 200 }, glm::ivec2{ 200, 200 }, Color{ 0.5f, 0.2f, 0.2f });
 			renderer->draw_text(std::to_string(timer->get_fps()), glm::vec2{ 10, 10 }, Color{ 0.0f, 0.0f, 0.0f });
-			renderer->draw_polygon(glm::ivec2{ 0, 0 }, 100, 6, glm::vec3{ 1.0f, 1.0f, 1.0f });
+			//renderer->draw_polygon(glm::ivec2{ 0, 0 }, 100, 6, glm::vec3{ 1.0f, 1.0f, 1.0f });
 
 			world.update_system(std::function<void(float, KinematicBody2D&, Transform2D&)>{ std::ref(physics_system) }, dt);
 			world.update_system(std::function<void(float, Player&, Sprite&, Transform2D&)>{ std::ref(camera_system) }, dt);
 			world.update_system(std::function<void(float, Sprite&, Transform2D&)>{ std::ref(render_system) }, dt);
+
+			for (size_t i = 0; i < 100; i++)
+			{
+				for (size_t j = 0; j < 100; j++)
+				{
+					//renderer->draw_texture(sprite.texture, transform.position + glm::vec2{i * 30, j * 30}, transform.rotation);
+					renderer->draw_rect(glm::vec2{ i * 32, j * 32 }, glm::vec2{ 24, 24 }, glm::vec3{ 0.4f, 0.6f, 0.5f });
+
+				}
+			}
+
+			renderer->flush();
 		}
 
 		void leave() override

@@ -2321,6 +2321,15 @@
     <ClInclude Include="include\Components\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\FrameBufferRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\FrameBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\OdisEngine\include\FileSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="lib\OdisEngine\glm\CMakeLists.txt" />
