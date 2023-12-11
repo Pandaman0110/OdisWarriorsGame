@@ -970,6 +970,7 @@
     <ClInclude Include="sol\lua\include\luaconf.h" />
     <ClInclude Include="sol\lua\include\lualib.h" />
     <ClInclude Include="sol\sol.hpp" />
+    <ClInclude Include="include\TileMap.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="assets\fonts\ocraext.ttf" />

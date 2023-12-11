@@ -20,6 +20,8 @@
 #include "Gui.h"
 #include "Timer.h"
 #include "Camera.h"
+#include "ResourceManager.h"
+#include "TileMap.h"
 
 #include "Systems/RenderSystem.h"
 #include "Systems/CameraSystem.h"
@@ -45,6 +47,7 @@ namespace GameState
 
 		Entity me;
 	public:
+		TileMap<int> tile_map{};
 
 		CatGame()
 		{
@@ -73,6 +76,11 @@ namespace GameState
 
 			OdisGui::Gui gui;
 
+			std::array<int, 8> test{ 1, 2, 3, 4, 5, 6, 7, 8 };
+
+			TileMap<int> tile_map{ test, 2 };
+
+		
 		}
 
 		void update(float dt) override
@@ -88,15 +96,7 @@ namespace GameState
 			world.update_system(std::function<void(float, Player&, Sprite&, Transform2D&)>{ std::ref(camera_system) }, dt);
 			world.update_system(std::function<void(float, Sprite&, Transform2D&)>{ std::ref(render_system) }, dt);
 
-			for (size_t i = 0; i < 100; i++)
-			{
-				for (size_t j = 0; j < 100; j++)
-				{
-					//renderer->draw_texture(sprite.texture, transform.position + glm::vec2{i * 30, j * 30}, transform.rotation);
-					renderer->draw_rect(glm::vec2{ i * 32, j * 32 }, glm::vec2{ 24, 24 }, glm::vec3{ 0.4f, 0.6f, 0.5f });
-
-				}
-			}
+			
 
 			renderer->flush();
 		}
