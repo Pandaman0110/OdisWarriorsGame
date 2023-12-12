@@ -228,6 +228,7 @@
     <ClInclude Include="include\GameStateManager.h" />
     <ClInclude Include="include\Gui.h" />
     <ClInclude Include="include\GuiComponents.h" />
+    <ClInclude Include="include\Systems\TileMapRenderSystem.h" />
     <ClInclude Include="include\World.h" />
     <ClInclude Include="lib\box2d\b2_api.h" />
     <ClInclude Include="lib\box2d\b2_block_allocator.h" />
@@ -970,7 +971,7 @@
     <ClInclude Include="sol\lua\include\luaconf.h" />
     <ClInclude Include="sol\lua\include\lualib.h" />
     <ClInclude Include="sol\sol.hpp" />
-    <ClInclude Include="include\TileMap.h" />
+    <ClInclude Include="include\Components\TileMap.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="assets\fonts\ocraext.ttf" />
@@ -978,6 +979,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\data\cat_names.toml" />
+    <None Include="assets\data\forest.map" />
     <None Include="lib\glm\detail\func_common.inl" />
     <None Include="lib\glm\detail\func_common_simd.inl" />
     <None Include="lib\glm\detail\func_exponential.inl" />
@@ -1282,6 +1284,7 @@
     <Font Include="assets\fonts\ebg_r.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="assets\textures\grass.png" />
     <Image Include="assets\textures\Mapwarriors.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

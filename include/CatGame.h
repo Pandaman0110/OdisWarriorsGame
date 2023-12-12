@@ -6,6 +6,7 @@
 #include <memory>
 #include <type_traits>
 #include <vector>
+#include <fstream>
 
 #include <Input.h>
 #include <Renderer.h>
@@ -21,9 +22,9 @@
 #include "Timer.h"
 #include "Camera.h"
 #include "ResourceManager.h"
-#include "TileMap.h"
 
 #include "Systems/RenderSystem.h"
+#include "Systems/TileMapRenderSystem.h"
 #include "Systems/CameraSystem.h"
 #include "Systems/PhysicsSystem.h"
 
@@ -41,13 +42,13 @@ namespace GameState
 		PhysicsSystem physics_system{};
 		CameraSystem camera_system{};
 		RenderSystem render_system{};
+		TileMapRenderSystem tile_map_render_system{&world};
 
 		CatGenerator cat_generator;
 		ClanGenerator clan_generator;
 
 		Entity me;
 	public:
-		TileMap<int> tile_map{};
 
 		CatGame()
 		{
@@ -61,9 +62,8 @@ namespace GameState
 			world.assign<Player>(me, PlayerNumbers::one);
 			world.assign<Cat>(me, "CumStar");
 			world.assign<Sprite>(me, resource_manager->load_texture("assets/textures/cat_textures/catgreyidle.png", "cat"));
-
+			
 			auto state = script_manager->new_lua_state("Warriors");
-
 
 			cat_generator = { state };
 			clan_generator = { state };
@@ -76,11 +76,14 @@ namespace GameState
 
 			OdisGui::Gui gui;
 
-			std::array<int, 8> test{ 1, 2, 3, 4, 5, 6, 7, 8 };
+			//ileMap<uint8_t> tile_map{ {0, 1, 2, 1, 0, 0, 2, 1}, 4 };
 
-			TileMap<int> tile_map{ test, 2 };
+			//tile_map.write_file("assets/data/forest.map");
 
-		
+			//auto test = TileMap<uint8_t>::load_file("assets/data/forest.map");
+
+			//std::cout << test << "\n";
+
 		}
 
 		void update(float dt) override
@@ -94,10 +97,11 @@ namespace GameState
 
 			world.update_system(std::function<void(float, KinematicBody2D&, Transform2D&)>{ std::ref(physics_system) }, dt);
 			world.update_system(std::function<void(float, Player&, Sprite&, Transform2D&)>{ std::ref(camera_system) }, dt);
+			world.update_system(std::function<void(float, TileMap<uint8_t>&)>{ std::ref(tile_map_render_system) }, dt);
 			world.update_system(std::function<void(float, Sprite&, Transform2D&)>{ std::ref(render_system) }, dt);
 
-			
-			std::cout << logger->rdbuf();
+			std::cout << *logger;
+
 			renderer->flush();
 		}
 

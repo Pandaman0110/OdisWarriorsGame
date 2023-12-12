@@ -7,6 +7,6 @@
 #include "Components/PhysicsBodies.h"
 #include "Components/Sprite.h"
 #include "Components/Transform.h"
-
+#include "Components/TileMap.h"
 
 #endif

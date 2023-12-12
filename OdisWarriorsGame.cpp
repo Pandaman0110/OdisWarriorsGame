@@ -60,8 +60,9 @@ int main()
 		window->swap_buffers();
 	}
 
-	timer->stop();
+	//engine_shutdown:
 
+	timer->stop();
 	window->terminate();
 
 	return 0;

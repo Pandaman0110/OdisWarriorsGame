@@ -2330,7 +2330,10 @@
     <ClInclude Include="lib\OdisEngine\include\FileSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\TileMap.h">
+    <ClInclude Include="include\Components\TileMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Systems\TileMapRenderSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -3173,6 +3176,7 @@
     <None Include="script\cat_names.lua" />
     <None Include="script\cat_data.lua" />
     <None Include="assets\data\cat_names.toml" />
+    <None Include="assets\data\forest.map" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\box2d_release.lib" />
@@ -3189,6 +3193,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\textures\Mapwarriors.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\grass.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
