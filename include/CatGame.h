@@ -92,11 +92,13 @@ namespace GameState
 
 			renderer->clear(232.0f / 255.0f, 209.0f / 255.0f, 169.0f / 255.0f);
 			//renderer->draw_rect(glm::ivec2{ 200, 200 }, glm::ivec2{ 200, 200 }, Color{ 0.5f, 0.2f, 0.2f });
-			renderer->draw_text(std::to_string(timer->get_fps()), glm::vec2{ 10, 10 }, Color{ 0.0f, 0.0f, 0.0f });
+			renderer->set_camera();
+			renderer->draw_text(std::to_string(timer->get_fps()), glm::ivec2{ 20, 20 }, Color{ 0.0f, 0.0f, 0.0f });
+			renderer->last_camera();
 			//renderer->draw_polygon(glm::ivec2{ 0, 0 }, 100, 6, glm::vec3{ 1.0f, 1.0f, 1.0f });
 
 			world.update_system(std::function<void(float, KinematicBody2D&, Transform2D&)>{ std::ref(physics_system) }, dt);
-			world.update_system(std::function<void(float, Player&, Sprite&, Transform2D&)>{ std::ref(camera_system) }, dt);
+			//world.update_system(std::function<void(float, Player&, Sprite&, Transform2D&)>{ std::ref(camera_system) }, dt);
 			world.update_system(std::function<void(float, TileMap<uint8_t>&)>{ std::ref(tile_map_render_system) }, dt);
 			world.update_system(std::function<void(float, Sprite&, Transform2D&)>{ std::ref(render_system) }, dt);
 

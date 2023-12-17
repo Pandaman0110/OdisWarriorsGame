@@ -28,6 +28,7 @@ public:
 		world->get<TileMap<uint8_t>>(map).write_file("assets/data/forest.map");
 
 		//print map
+		/*
 		for (int y = 0; y < tile_map.height(); y++)
 		{
 			for (int x = 0; x < tile_map.width(); x++)
@@ -36,6 +37,7 @@ public:
 			}
 			std::cout << "\n";
 		}
+		*/
 
 		resource_manager->load_texture("assets/textures/grass.png", "grass"); 
 	}
@@ -47,16 +49,18 @@ public:
 
 	void operator()(float dt, TileMap<uint8_t>& tile_map)
 	{
-		/**/
+		
 		for (int y = 0; y < tile_map.height(); y++)
 		{
 			for (int x = 0; x < tile_map.width(); x++)
 			{
 				const uint8_t val = tile_map.get(x, y);
+				auto& texture = resource_manager->get_texture("grass");
 
-				renderer->draw_rect(glm::ivec2{ x * 32, y * 32 }, glm::ivec2{ 32, 32 }, glm::vec3{ static_cast<float>(val) / 255, static_cast<float>(val) / 255, static_cast<float>(val) / 255 });
+				renderer->draw_texture(texture, glm::ivec2{ x * 32, y * 32 }, 0.0f);
 			}
 		}
+		
 	}
 
 };
